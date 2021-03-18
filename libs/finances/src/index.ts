@@ -1,1 +1,1 @@
-export * from './lib/finances';
+export * from './lib/invoicing';
