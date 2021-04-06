@@ -13,7 +13,7 @@ export const App = () => {
     <>
       <div style={{ textAlign: 'center' }}>
         <h1>Welcome to sandwich-club!</h1>
-        <img width="450" src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" />
+        <img width="450" src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" alt="nx_logo" />
       </div>
       <div>{m.message}</div>
     </>
