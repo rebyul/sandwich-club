@@ -3,12 +3,9 @@
   "extends": ["plugin:prettier/recommended"],
   "ignorePatterns": ["**/*"],
   "plugins": ["@nrwl/nx"],
-  "rules": {
-    "max-len": ["error", {
-      "code": 40
-    }]
-  },
-  "overrides": [{
+  "rules": {},
+  "overrides": [
+    {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
         "@nrwl/nx/enforce-module-boundaries": [
@@ -16,10 +13,12 @@
           {
             "enforceBuildableLibDependency": true,
             "allow": [],
-            "depConstraints": [{
-              "sourceTag": "*",
-              "onlyDependOnLibsWithTags": ["*"]
-            }]
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": ["*"]
+              }
+            ]
           }
         ]
       }
