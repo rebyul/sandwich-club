@@ -3,7 +3,7 @@
 
 export const environment: Environment = {
   production: false,
-  apiUri: 'https://localhost:3333',
+  apiUri: 'https://localhost:3001',
 };
 
 export type Environment = {

@@ -71,6 +71,16 @@
             }
           }
         },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx build sandwich-club",
+              "docker build -f ./apps/sandwich-club/Dockerfile . -t react-app"
+            ],
+            "parallel": false
+          }
+        },
         "serve": {
           "executor": "@nrwl/web:dev-server",
           "options": {
@@ -176,7 +186,7 @@
           "options": {
             "commands": [
               "nx build api",
-              "docker build -f ./apps/api/Dockerfile . -t api"
+              "docker build -f ./apps/api/Dockerfile . -t api-server"
             ],
             "parallel": false
           }

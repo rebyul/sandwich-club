@@ -1,6 +1,31 @@
 version: '3.8'
+
+networks:
+  corp:
+    driver: bridge
+
 services:
-  api:
-    image: api
+  api-server:
+    container_name: api-server
+    image: api-server:nx-prod
     ports:
       - '3001:3001'
+    environment:
+      NODE_ENV: "production"
+      PORT: 3001
+    networks:
+      - corp
+    restart: on-failure
+  react-app:
+    image: react-app:latest
+    ports:
+      - 3002:80
+    environment:
+      NODE_ENV: "prouction"
+      PORT: 3002
+    networks:
+      - corp
+    restart: on-failure
+    environment:
+      - apiPath=http://api-server:3001
+
