@@ -6,20 +6,21 @@ class Invoice {
   public readonly createdAt: Date;
   public invoiceLines: List<InvoiceLine>;
 
-  constructor(public readonly id: string, public readonly ownerId: string, lines: List<InvoiceLine> = List()) {
+  constructor(public readonly id: string, public readonly ownerId: string, lines: List<InvoiceLine> | InvoiceLine[] = List()) {
     this.createdAt = new Date();
-    this.invoiceLines = lines;
+    this.invoiceLines = List();
+    this.addInvoiceLines(lines);
   }
 
   public addInvoiceLine(newLine: InvoiceLine) {
-    if (this.invoiceLines.findIndex(l => l.equals(newLine)) > -1) {
+    if (this.hasInvoiceLine(newLine)) {
       throw new InvoiceLineExistsError(newLine.id)
     }
     this.invoiceLines = this.invoiceLines.push(newLine);
     return this;
   }
 
-  public addInvoiceLines(newLines: InvoiceLine[]) {
+  public addInvoiceLines(newLines: InvoiceLine[] | List<InvoiceLine>) {
     newLines.forEach(l => {
       this.addInvoiceLine(l);
     })
@@ -27,10 +28,14 @@ class Invoice {
   }
 
   public removeInvoiceLine(line: InvoiceLine) {
-    const indexToRemove = this.invoiceLines.findIndex(l => l.equals(line))
-    this.invoiceLines = this.invoiceLines.remove(indexToRemove);
+    if (this.hasInvoiceLine(line)) {
+      const indexToRemove = this.invoiceLines.findIndex(l => l.equals(line))
+      this.invoiceLines = this.invoiceLines.remove(indexToRemove);
+    }
     return this;
   }
+
+  private hasInvoiceLine = (invoiceLine: InvoiceLine): boolean => this.invoiceLines.findIndex(i => i.equals(invoiceLine)) !== -1;
 }
 
 export { Invoice };
