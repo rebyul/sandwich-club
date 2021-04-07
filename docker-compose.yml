@@ -1,31 +1,46 @@
 version: '3.8'
 
 networks:
-  corp:
+  cheese-layer:
     driver: bridge
 
 services:
   api-server:
     container_name: api-server
-    image: api-server:nx-prod
+    build:
+      context: ./
+      cache_from:
+        - npm-base:nx-base
+        - node:lts-alpine
+      dockerfile: ./apps/api/Dockerfile
+      args:
+        NODE_ENV: 'development'
+        BUILD_FLAG: ''
+    image: api-server:nx-dev
     ports:
-      - '3001:3001'
+      - 4939:4939
     environment:
-      NODE_ENV: "production"
-      PORT: 3001
+      NODE_ENV: 'production'
+      port: 4939
     networks:
-      - corp
+      - cheese-layer
     restart: on-failure
   react-app:
-    image: react-app:latest
+    container_name: react-client
+    build:
+      context: ./
+      cache_from:
+        - nginx:1-alpine
+      dockerfile: ./apps/sandwich-club/Dockerfile
+      args:
+        NODE_ENV: 'production'
+        BUILD_FLAG: ''
+    image: react-app:nx-dev
     ports:
-      - 3002:80
+      - 4900:80
     environment:
-      NODE_ENV: "prouction"
-      PORT: 3002
+      NODE_ENV: 'production'
+      port: 80
     networks:
-      - corp
+      - cheese-layer
     restart: on-failure
-    environment:
-      - apiPath=http://api-server:3001
-
