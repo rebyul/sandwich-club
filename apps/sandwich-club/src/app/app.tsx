@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 export const App = () => {
   const [m, setMessage] = useState({ message: '' });
-  console.log(process.env);
+
   useEffect(() => {
-    fetch(`${process.env.apiPath}/api`)
+    fetch('/api')
       .then((r) => r.json())
       .then(setMessage);
   }, []);
