@@ -1,4 +1,4 @@
-# SandwichClub
+# Sandwich Club
 
 This project was generated using [Nx](https://nx.dev).
 
@@ -10,8 +10,9 @@ To run the project execute `docker-compose up` in the root of the repository.
 
 # Development Environment
 
-- [React] (Default project) Run `npm start` or `npm run nx run sandwich-club:serve`
-- [Api] Run `npm run nx run api:serve`
+- ⭐ (All projetcs) Run `npm start:all`
+- ⚛️ (Default project) Run `npm start` or `npm run nx run sandwich-club:serve`
+- <img src="https://emoji.gg/assets/emoji/4408_nodejs.png" height="24" width="24"> Run `npm run nx run api:serve`
 
 <p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
