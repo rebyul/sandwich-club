@@ -65,7 +65,7 @@
           }
         },
         "deploy": {
-          "builder": "@nrwl/workspace:run-commands",
+          "executor": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
               "nx build sandwich-club",
@@ -165,7 +165,7 @@
           }
         },
         "deploy": {
-          "builder": "@nrwl/workspace:run-commands",
+          "executor": "@nrwl/workspace:run-commands",
           "options": {
             "commands": ["nx build api", "docker build -f ./apps/api/Dockerfile . -t api-server"],
             "parallel": false
