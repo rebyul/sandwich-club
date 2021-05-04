@@ -1,13 +1,17 @@
 export type InvoiceLineProps = {
-  id: string, description: string
-}
+  id: string;
+  description: string;
+};
+
+// Type merging hack to implement readonly property inheritance
+// interface InvoiceLine extends InvoiceLineSchema {}
 
 class InvoiceLine {
-  public readonly id: string;
-  public readonly description: string
+  public id: string;
+  public description: string;
 
   constructor(values: InvoiceLineProps) {
-    ({ id: this.id, description: this.description } = values)
+    Object.assign(this, values);
   }
 
   equals(other: unknown): boolean {
@@ -18,4 +22,4 @@ class InvoiceLine {
   }
 }
 
-export { InvoiceLine }
+export { InvoiceLine };
