@@ -1,23 +1,12 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
+  "cli": { "defaultCollection": "@nrwl/react" },
   "defaultProject": "sandwich-club",
   "generators": {
     "@nrwl/react": {
-      "application": {
-        "style": "@emotion/styled",
-        "linter": "eslint",
-        "babel": true
-      },
-      "component": {
-        "style": "@emotion/styled"
-      },
-      "library": {
-        "style": "@emotion/styled",
-        "linter": "eslint"
-      }
+      "application": { "style": "@emotion/styled", "linter": "eslint", "babel": true },
+      "component": { "style": "@emotion/styled" },
+      "library": { "style": "@emotion/styled", "linter": "eslint" }
     }
   },
   "projects": {
@@ -54,13 +43,7 @@
               "sourceMap": false,
               "extractCss": true,
               "extractLicenses": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
+              "budgets": [{ "type": "initial", "maximumWarning": "2mb", "maximumError": "5mb" }]
             }
           }
         },
@@ -80,25 +63,16 @@
             "buildTarget": "sandwich-club:build",
             "proxyConfig": "apps/sandwich-club/proxy.conf.json"
           },
-          "configurations": {
-            "production": {
-              "buildTarget": "sandwich-club:build:production"
-            }
-          }
+          "configurations": { "production": { "buildTarget": "sandwich-club:build:production" } }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/sandwich-club/**/*.{ts,tsx,js,jsx}"]
-          }
+          "options": { "lintFilePatterns": ["apps/sandwich-club/**/*.{ts,tsx,js,jsx}"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/sandwich-club"],
-          "options": {
-            "jestConfig": "apps/sandwich-club/jest.config.js",
-            "passWithNoTests": true
-          }
+          "options": { "jestConfig": "apps/sandwich-club/jest.config.js", "passWithNoTests": true }
         }
       }
     },
@@ -115,16 +89,12 @@
             "devServerTarget": "sandwich-club:serve"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "sandwich-club:serve:production"
-            }
+            "production": { "devServerTarget": "sandwich-club:serve:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/sandwich-club-e2e/**/*.{js,ts}"]
-          }
+          "options": { "lintFilePatterns": ["apps/sandwich-club-e2e/**/*.{js,ts}"] }
         }
       }
     },
@@ -158,12 +128,7 @@
             }
           }
         },
-        "serve": {
-          "executor": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "api:build"
-          }
-        },
+        "serve": { "executor": "@nrwl/node:execute", "options": { "buildTarget": "api:build" } },
         "deploy": {
           "executor": "@nrwl/workspace:run-commands",
           "options": {
@@ -173,17 +138,12 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/api/**/*.ts"]
-          }
+          "options": { "lintFilePatterns": ["apps/api/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/api"],
-          "options": {
-            "jestConfig": "apps/api/jest.config.js",
-            "passWithNoTests": true
-          }
+          "options": { "jestConfig": "apps/api/jest.config.js", "passWithNoTests": true }
         }
       }
     },
@@ -194,17 +154,39 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/finances/**/*.ts"]
-          }
+          "options": { "lintFilePatterns": ["libs/finances/**/*.ts"] }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/finances"],
+          "options": { "jestConfig": "libs/finances/jest.config.js", "passWithNoTests": true }
+        }
+      }
+    },
+    "membership": {
+      "root": "libs/membership",
+      "sourceRoot": "libs/membership/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
           "options": {
-            "jestConfig": "libs/finances/jest.config.js",
-            "passWithNoTests": true
+            "outputPath": "dist/libs/membership",
+            "tsConfig": "libs/membership/tsconfig.lib.json",
+            "packageJson": "libs/membership/package.json",
+            "main": "libs/membership/src/index.ts",
+            "assets": ["libs/membership/*.md"]
           }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["libs/membership/**/*.ts"] }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/membership"],
+          "options": { "jestConfig": "libs/membership/jest.config.js", "passWithNoTests": true }
         }
       }
     }
