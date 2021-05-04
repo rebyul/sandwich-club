@@ -3,7 +3,10 @@ export type InvoiceLineProps = {
   description: string;
 };
 
-// Type merging hack to implement readonly property inheritance
+/*
+  Type merging hack to implement readonly property inheritance
+  Turn InvoiceLineProps into an interface. Remove public properties from InvoiceLine
+*/
 // interface InvoiceLine extends InvoiceLineSchema {}
 
 class InvoiceLine {
