@@ -1,7 +1,17 @@
-
 # SandwichClub
 
 This project was generated using [Nx](https://nx.dev).
+
+# Running the project
+
+The project is split between a react frontend and express backend container.
+To run the project execute `docker-compose up` in the root of the repository.
+`ctrl + c` to stop the containers.
+
+# Development Environment
+
+- [React] (Default project) Run `npm start` or `npm run nx run sandwich-club:serve`
+- [Api] Run `npm run nx run api:serve`
 
 <p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
@@ -77,8 +87,6 @@ Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
 
 ## ☁ Nx Cloud
 
