@@ -1,5 +1,5 @@
 import { List } from 'immutable';
-import { InvoiceLineExistsError } from './exceptions';
+import { InvoiceLineExistsError } from '../exceptions';
 import { InvoiceLine } from './invoice-line';
 
 class Invoice {
