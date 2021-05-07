@@ -1,6 +1,6 @@
 import { List } from 'immutable';
 import { UuidTool } from 'uuid-tool';
-import { InvoiceLineExistsError } from './exceptions';
+import { InvoiceLineExistsError } from '../exceptions';
 import { Invoice } from './invoice';
 import { InvoiceLine } from './invoice-line';
 import { newInvoiceLine, newInvoiceLineDescription, newInvoiceLineId } from './invoice-line.spec';
