@@ -17,11 +17,9 @@
   },
   "projects": {
     "sandwich-club": { "tags": [] },
-    "sandwich-club-e2e": {
-      "tags": [],
-      "implicitDependencies": ["sandwich-club"]
-    },
+    "sandwich-club-e2e": { "tags": [], "implicitDependencies": ["sandwich-club"] },
     "api": { "tags": [] },
-    "finances": { "tags": [] }
+    "finances": { "tags": [] },
+    "membership": { "tags": [] }
   }
 }

@@ -3,5 +3,6 @@ module.exports = {
     '<rootDir>/apps/sandwich-club',
     '<rootDir>/apps/api',
     '<rootDir>/libs/finances',
+    '<rootDir>/libs/membership',
   ],
 };
