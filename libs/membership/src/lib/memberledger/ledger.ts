@@ -4,8 +4,9 @@ class Ledger {
   constructor(
     public ledgerId: LedgerId,
     public createdAt: Date,
-    public description: string,
-    public amount: number
+    public invoiceReference: string,
+    public amount: number,
+    public description: string = ''
   ) {}
 }
 
