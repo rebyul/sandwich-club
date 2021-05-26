@@ -12,14 +12,15 @@ export const App = () => {
   return (
     <>
       <div style={{ textAlign: 'center' }}>
-        <h1>Welcome to sandwich-club!</h1>
-        <img
-          width="450"
-          src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-          alt="nx-logo"
-        />
+        <img src="/assets/LunchBunch.png" />
       </div>
       <div>{m.message}</div>
+      <a href="">Enrol into this weeks Sandwich Club</a>
+      <br />
+      <br />
+      <h1>How it works?</h1>
+      <br />
+      <h2>reviews</h2>
     </>
   );
 };
