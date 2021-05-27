@@ -85,17 +85,18 @@ export function CurrentIngredients(props: CurrentIngredientsProps) {
     {
       value: 1,
       name: 'Han Bo',
-      image: '../assets/Marcus.jpg',
+      image: '../assets/Hanbo.png',
     },
     {
       value: 2,
       name: 'Dom',
-      image: '../assets/Marcus.jpg',
+      image: '../assets/Dom.jpg',
     },
     {
       value: 3,
-      name: 'Anders',
-      image: '../assets/Marcus.jpg',
+      name: '' +
+        'Anders',
+      image: '../assets/Anders.jpg',
     },
   ];
 
