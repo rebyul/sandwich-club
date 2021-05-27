@@ -6,8 +6,8 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
+import { Paper, Slide } from '@material-ui/core';
 
-/ eslint-disable-next-line /;
 export interface CurrentIngredientsProps {
   date: number;
 }
@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     icon: {
       color: 'rgba(255, 255, 255, 0.54)',
+    },
+    paper: {
+      margin: theme.spacing(1),
     },
   })
 );
@@ -66,21 +69,24 @@ export function CurrentIngredients(props: CurrentIngredientsProps) {
         </GridListTile>
         {tileData.map((tile) => (
           <GridListTile key={tile.img} cols={1}>
-            <img
-              src={tile.img}
-              alt={tile.title}
-              style={{ height: '100%', width: 'auto', left: '25%' }}
-              className="MuiGridListTile-imgFullHeight"
-            />
-            <GridListTileBar
-              title={tile.title}
-              subtitle={<span>{tile.cost}</span>}
-              actionIcon={
-                <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
-                  <InfoIcon />
-                </IconButton>
-              }
-            />
+            <Slide direction="up" in={true}>
+              <Paper elevation={0} className={classes.paper}>
+                <img
+                  src={tile.img}
+                  alt={tile.title}
+                  style={{ width: '100%', height: '100%', left: '25%' }}
+                />
+                <GridListTileBar
+                  title={tile.title}
+                  subtitle={<span>{tile.cost}</span>}
+                  actionIcon={
+                    <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
+                      <InfoIcon />
+                    </IconButton>
+                  }
+                />
+              </Paper>
+            </Slide>
           </GridListTile>
         ))}
       </GridList>

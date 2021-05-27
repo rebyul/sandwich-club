@@ -1,21 +1,10 @@
-import { createMuiTheme, CssBaseline, ThemeProvider } from '@material-ui/core';
-import { green } from '@material-ui/core/colors';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import { useEffect, useState } from 'react';
 import { NavigationBar } from './components/nav/NavigationBar';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomePage from './pages/home.page';
 import MyAccountPage from './pages/my-account.page';
-
-const swcTheme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#ffe16f',
-    },
-    secondary: {
-      main: green[500],
-    },
-  },
-});
+import { lunchBunchTheme } from '../theme';
 
 export const App = () => {
   const [m, setMessage] = useState({ message: '' });
@@ -29,7 +18,7 @@ export const App = () => {
   return (
     <BrowserRouter>
       <CssBaseline />
-      <ThemeProvider theme={swcTheme}>
+      <ThemeProvider theme={lunchBunchTheme}>
         <NavigationBar />
         <Switch>
           <Route path="/my-account">

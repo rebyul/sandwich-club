@@ -1,8 +1,12 @@
-import { Grid, makeStyles, Typography } from '@material-ui/core';
+import { Container, Grid, makeStyles, Typography } from '@material-ui/core';
 import React, { FC } from 'react';
 import { Section } from '../components/section/Section';
 
-const useStyles = makeStyles({});
+const useStyles = makeStyles((theme) => ({
+  works: {
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
 
 function HomePage() {
   const classes = useStyles();
@@ -11,7 +15,7 @@ function HomePage() {
     <>
       <Section>
         {/* <Grid alignItems="center" justify="center"> */}
-        <img src="/assets/LunchBunch.png" width="100%" height="auto" alt="premium-lunch-bunch" />
+        <img src="/assets/LunchBunch.png" height="auto" alt="premium-lunch-bunch" />
         {/* </Grid> */}
       </Section>
       <Section />
@@ -19,7 +23,10 @@ function HomePage() {
       <br />
       <br />
       <Section>
-        <Typography variant="h2">How it works?</Typography>
+        <Container className={classes.works} fixed>
+          <Typography variant="h2">How it works?</Typography>
+          <br />
+        </Container>
       </Section>
       <br />
       <h2>reviews</h2>

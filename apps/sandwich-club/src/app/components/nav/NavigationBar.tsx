@@ -44,7 +44,7 @@ function NavigationBar() {
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <Link className={classes.homeLink} to="/">
-              <img src="/assets/LunchBunchIcon.png" className={classes.homeLinkIcon} alt="icon" />
+              <img src="/assets/LunchBunch-logo.png" className={classes.homeLinkIcon} alt="icon" />
             </Link>
           </Typography>
           <Button onClick={openLoginModal}>Login</Button>
