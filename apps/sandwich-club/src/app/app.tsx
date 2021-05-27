@@ -14,6 +14,7 @@ import {
 } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, useHistory, Switch, Link } from 'react-router-dom';
+import HomePage from './pages/home.page';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,23 +34,6 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none',
   },
 }));
-
-// Put this somewhere else plz
-const HomePageComponent = () => {
-  return (
-    <>
-      <div style={{ textAlign: 'center' }}>
-        <img src="/assets/LunchBunch.png" />
-      </div>
-      <a href="">Enrol into this weeks Sandwich Club</a>
-      <br />
-      <br />
-      <h1>How it works?</h1>
-      <br />
-      <h2>reviews</h2>
-    </>
-  );
-};
 
 export const App = () => {
   const [m, setMessage] = useState({ message: '' });
@@ -121,7 +105,7 @@ export const App = () => {
           <h1>Login Page?</h1>
         </Route>
         <Route path="/">
-          <HomePageComponent />
+          <HomePage />
         </Route>
       </Switch>
     </BrowserRouter>
