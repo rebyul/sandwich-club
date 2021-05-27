@@ -15,13 +15,6 @@ router.get('/:week', (req, res) => {
   res.send(weekThing);
 });
 
-/**
- * Things by week?
- * - get members
- * - enrol member
- * - get ingredients
- * - set ingredients?
- */
 router.get('/:week/ingredients', (req, res) => {
   const week = +req.params.week;
   const weekThing = getWeekThing(week);
