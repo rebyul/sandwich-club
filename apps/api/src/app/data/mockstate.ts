@@ -8,6 +8,7 @@ export type Ingredient = {
 
 export type Member = {
   name: string;
+  email: `${string}@${string}`;
   id: number;
 };
 
@@ -27,11 +28,16 @@ const allIngredients: Ingredient[] = [
     unit: 'unit',
     img: 'https://static.countdown.co.nz/assets/product-images/zoom/9415142008554.jpg',
   },
-  { name: 'Cheese', id: 2, pricePerUnit: 1.99, unit: 'unit' },
+  {
+    name: 'Cheese',
+    id: 2,
+    pricePerUnit: 15.7,
+    img: 'https://static.countdown.co.nz/assets/product-images/zoom/9421018080036.jpg',
+  },
   {
     name: 'Lettuce',
     id: 3,
-    pricePerUnit: 1.99,
+    pricePerUnit: 2.99,
     unit: 'unit',
     img: 'https://static.countdown.co.nz/assets/product-images/zoom/9421026690722.jpg',
   },
@@ -39,40 +45,73 @@ const allIngredients: Ingredient[] = [
     name: 'Tomato',
     id: 4,
     pricePerUnit: 1.99,
-    unit: 'unit',
+    unit: 'kg',
     img: 'https://static.countdown.co.nz/assets/product-images/zoom/265691000009.jpg',
   },
   {
     name: 'Chicken',
     id: 5,
-    pricePerUnit: 1.99,
-    unit: 'unit',
+    pricePerUnit: 9.99,
     img: 'https://static.countdown.co.nz/assets/product-images/zoom/9414735954537.jpg',
   },
-  { name: 'Ham', id: 6, pricePerUnit: 1.99, unit: 'unit' },
-  { name: 'Salami', id: 7, pricePerUnit: 1.99, unit: 'unit' },
+  {
+    name: 'Ham',
+    id: 6,
+    pricePerUnit: 1.99,
+    unit: '100g',
+    img: 'https://static.countdown.co.nz/assets/product-images/zoom/277565000008.jpg"',
+  },
+  {
+    name: 'Salami',
+    id: 7,
+    pricePerUnit: 3.99,
+    img: 'https://static.countdown.co.nz/assets/product-images/large/270095000005.jpg',
+  },
+  {
+    id: 8,
+    name: 'BBQ Sauce',
+    pricePerUnit: 3,
+    img: 'https://static.countdown.co.nz/assets/product-images/zoom/9419741000681.jpg',
+  },
+  {
+    id: 9,
+    name: 'Gherkins',
+    pricePerUnit: 3,
+    img: 'https://static.countdown.co.nz/assets/product-images/zoom/9416107513489.jpg',
+  },
+  {
+    id: 10,
+    name: 'Sriracha',
+    pricePerUnit: 6.99,
+    img: 'https://static.countdown.co.nz/assets/product-images/zoom/24463061095.jpg',
+  },
 ];
 
 const allMembers: Member[] = [
   {
     id: 1,
     name: 'Kelvin',
+    email: 'kelvin.lau@trademe.co.nz',
   },
   {
     id: 2,
     name: 'Marcus',
+    email: 'marcus.ball@trademe.co.nz',
   },
   {
     id: 3,
     name: 'Max',
+    email: 'max.mclaren@trademe.co.nz',
   },
   {
     id: 4,
     name: 'Bo',
+    email: 'bo.han@trademe.co.nz',
   },
   {
     id: 5,
     name: 'Dom',
+    email: 'dominic.kim@trademe.co.nz',
   },
 ];
 

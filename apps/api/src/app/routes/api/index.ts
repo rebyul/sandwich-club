@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { getAllIngredients } from '../../mockstate';
+import { getAllIngredients } from '../../data/mockstate';
 import memberRoutes from './member';
 import weekRoutes from './week';
 
@@ -11,11 +11,11 @@ router.get('/', (req, res) => {
   res.send(greeting);
 });
 
-router.get('/ingredients', (req, res) =>
+router.get('/ingredients', (req, res) => {
   res.send({
     ingredients: getAllIngredients(),
-  })
-);
+  });
+});
 
 router.use('/members', memberRoutes);
 router.use('/week', weekRoutes);
