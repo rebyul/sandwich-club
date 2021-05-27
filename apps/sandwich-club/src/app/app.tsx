@@ -11,6 +11,9 @@ const swcTheme = createMuiTheme({
     primary: {
       main: '#ffe16f',
     },
+    background: {
+      default: '#ffe16f',
+    },
     secondary: {
       main: green[500],
     },
@@ -30,6 +33,7 @@ export const App = () => {
     <BrowserRouter>
       <CssBaseline />
       <ThemeProvider theme={swcTheme}>
+        <CssBaseline />
         <NavigationBar />
         <Switch>
           <Route path="/my-account">
