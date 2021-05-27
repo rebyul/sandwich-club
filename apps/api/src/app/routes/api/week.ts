@@ -5,7 +5,7 @@ import {
   getWeekThing,
   removeIngredient,
   withdrawMember,
-} from '../../mockstate';
+} from '../../data/mockstate';
 
 const router = express.Router();
 
