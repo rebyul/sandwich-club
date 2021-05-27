@@ -50,7 +50,11 @@ export function RequestIngredients(props: RequestIngredientsProps) {
   }, []);
 
   if (date === 0 || !ingredients) {
-    return <></>;
+    return (
+      <>
+        <h1>Locked</h1>
+      </>
+    );
   }
 
   return (
