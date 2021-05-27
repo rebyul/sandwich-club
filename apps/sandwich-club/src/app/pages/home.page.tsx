@@ -2,6 +2,7 @@ import { Button, Container, Grid, makeStyles, Paper, Typography } from '@materia
 import React, { FC } from 'react';
 import clsx from 'clsx';
 import { Flows } from '../components/how-it-works/Flows';
+import { Reviews } from '../components/reviewSection/Reviews';
 
 const useStyles = makeStyles((theme) => ({
   gridPaper: {
@@ -31,8 +32,8 @@ function HomePage() {
         </Button>
       </HomePageHero>
 
-      <Flows></Flows>
-      <h2>reviews</h2>
+      <Flows />
+      <Reviews />
     </>
   );
 }

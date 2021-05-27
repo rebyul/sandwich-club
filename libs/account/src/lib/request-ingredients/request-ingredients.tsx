@@ -6,7 +6,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
-import { Grid, Paper, Slide, Typography } from '@material-ui/core';
+import { Grid, Paper, Fade, Typography } from '@material-ui/core';
 import { PlusOneOutlined } from '@material-ui/icons';
 import LockIcon from '@material-ui/icons/Lock';
 
@@ -27,11 +27,20 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '80%',
       height: 450,
     },
+    gridListItem: {},
     icon: {
       color: 'rgba(255, 255, 255, 0.54)',
     },
     paper: {
       margin: theme.spacing(1),
+      borderRadius: 25,
+    },
+    title: {
+      color: 'white',
+    },
+    titleBar: {
+      background:
+        'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
     },
   })
 );
@@ -76,8 +85,8 @@ export function RequestIngredients(props: RequestIngredientsProps) {
         <div className={classes.root}>
           <GridList cellHeight={180} className={classes.gridList} cols={5}>
             {ingredients.map((tile) => (
-              <GridListTile key={tile.id} cols={1}>
-                <Slide direction="up" in={true}>
+              <GridListTile key={tile.id} cols={1} className={classes.gridListItem}>
+                <Fade timeout={Math.random() * (1000 - 100) + 100} in={true}>
                   <Paper elevation={0} className={classes.paper}>
                     {tile.img && (
                       <img
@@ -90,6 +99,10 @@ export function RequestIngredients(props: RequestIngredientsProps) {
                     <GridListTileBar
                       title={tile.name}
                       subtitle={<span>{tile.pricePerUnit}</span>}
+                      classes={{
+                        root: classes.titleBar,
+                        title: classes.title,
+                      }}
                       actionIcon={
                         <IconButton
                           aria-label={`Request Ingredient ${tile.name}`}
@@ -100,7 +113,7 @@ export function RequestIngredients(props: RequestIngredientsProps) {
                       }
                     />
                   </Paper>
-                </Slide>
+                </Fade>
               </GridListTile>
             ))}
           </GridList>
