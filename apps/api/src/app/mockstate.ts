@@ -8,6 +8,7 @@ export type Ingredient = {
 
 export type Member = {
   name: string;
+  email: `${string}@${string}`;
   id: number;
 };
 
@@ -57,22 +58,27 @@ const allMembers: Member[] = [
   {
     id: 1,
     name: 'Kelvin',
+    email: 'kelvin.lau@trademe.co.nz',
   },
   {
     id: 2,
     name: 'Marcus',
+    email: 'marcus.ball@trademe.co.nz',
   },
   {
     id: 3,
     name: 'Max',
+    email: 'max.mclaren@trademe.co.nz',
   },
   {
     id: 4,
     name: 'Bo',
+    email: 'bo.han@trademe.co.nz',
   },
   {
     id: 5,
     name: 'Dom',
+    email: 'dominic.kim@trademe.co.nz',
   },
 ];
 
