@@ -1,22 +1,30 @@
-export type Ingredient = string;
+export type Ingredient = {
+  id: number;
+  name: string;
+  price: string;
+};
+
 export type Member = {
   name: string;
   id: number;
 };
 
+// type PropType<T, P extends keyof T> = T[P];
+// type IdType = PropType<Member, 'id'>;
+
 export type WeekThing = {
-  members: Member[];
-  ingredients: Ingredient[];
+  members: Map<number, Member>;
+  ingredients: Map<number, Ingredient>;
 };
 
 const allIngredients: Ingredient[] = [
-  'Bread',
-  'Cheese',
-  'Lettuce',
-  'Tomato',
-  'Chicken',
-  'Ham',
-  'Salami',
+  { name: 'Bread', id: 1, price: '1.99' },
+  { name: 'Cheese', id: 2, price: '1.99' },
+  { name: 'Lettuce', id: 3, price: '1.99' },
+  { name: 'Tomato', id: 4, price: '1.99' },
+  { name: 'Chicken', id: 5, price: '1.99' },
+  { name: 'Ham', id: 6, price: '1.99' },
+  { name: 'Salami', id: 7, price: '1.99' },
 ];
 const allMembers: Member[] = [
   {
@@ -27,8 +35,8 @@ const allMembers: Member[] = [
 
 const weeklyThing: { [week: number]: WeekThing } = {
   21: {
-    members: [],
-    ingredients: [],
+    members: new Map(),
+    ingredients: new Map(),
   },
 };
 
@@ -44,36 +52,52 @@ export const getWeekThing = (week: number) => {
     return thing;
   }
 
-  const newThing = {
-    members: [],
-    ingredients: [],
+  const newThing: WeekThing = {
+    members: new Map(),
+    ingredients: new Map(),
   };
   weeklyThing[week] = newThing;
   return newThing;
 };
 
-export const addIngredient = (week: number, ingredient: Ingredient) => {
-  if (week <= getCurrentWeek()) {
-    throw new Error(`Can't change this week or past weeks`);
+export const enrolMember = (week: number, memberId: number) => {
+  if (week < getCurrentWeek()) {
+    throw new Error(`Can't enrol in past week`);
   }
 
   const weekThing = getWeekThing(week);
-  const isIngredientInList = weekThing.ingredients.includes(ingredient);
-
-  if (!isIngredientInList) {
-    weekThing.ingredients.push(ingredient);
-  }
+  weekThing.members.set(
+    memberId,
+    allMembers.find((m) => m.id === memberId)
+  );
 };
 
-export const removeIngredient = (week: number, ingredient: Ingredient) => {
+export const withdrawMember = (week: number, memberId: number) => {
+  if (week < getCurrentWeek()) {
+    throw new Error(`Can't withdraw from past week`);
+  }
+
+  const weekThing = getWeekThing(week);
+  weekThing.members.delete(memberId);
+};
+
+export const addIngredient = (week: number, ingredientId: number) => {
   if (week <= getCurrentWeek()) {
     throw new Error(`Can't change this week or past weeks`);
   }
 
   const weekThing = getWeekThing(week);
-  const ix = weekThing.ingredients.findIndex((i) => i === ingredient);
+  weekThing.ingredients.set(
+    ingredientId,
+    allIngredients.find((i) => i.id === ingredientId)
+  );
+};
 
-  if (ix != null) {
-    weekThing.ingredients.splice(ix, 1);
+export const removeIngredient = (week: number, ingredientId: number) => {
+  if (week <= getCurrentWeek()) {
+    throw new Error(`Can't change this week or past weeks`);
   }
+
+  const weekThing = getWeekThing(week);
+  weekThing.ingredients.delete(ingredientId);
 };
