@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { getWeekThing } from '../../mockstate';
+import { addIngredient, getWeekThing, removeIngredient } from '../../mockstate';
 
 const router = express.Router();
 
@@ -24,11 +24,19 @@ router.get('/:week/ingredients', (req, res) => {
   });
 });
 
-router.post('/:week/ingredients', (req, res) => {
+router.post('/:week/ingredients/:ingredient', (req, res) => {
   const week = +req.params.week;
-  const weekThing = getWeekThing(week);
-  weekThing.ingredients.push('juice');
+  const ingredient = req.params.ingredient;
 
+  addIngredient(week, ingredient);
+  res.sendStatus(200);
+});
+
+router.delete('/:week/ingredients/:ingredient', (req, res) => {
+  const week = +req.params.week;
+  const ingredient = req.params.ingredient;
+
+  removeIngredient(week, ingredient);
   res.sendStatus(200);
 });
 
