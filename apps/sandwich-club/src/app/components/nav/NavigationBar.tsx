@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
   homeLinkIcon: {
     height: '1.2em',
   },
+  appbar: {
+    boxShadow: 'none',
+  },
 }));
 
 function NavigationBar() {
@@ -37,7 +40,7 @@ function NavigationBar() {
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.appbar}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <Link className={classes.homeLink} to="/">

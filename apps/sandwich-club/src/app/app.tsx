@@ -32,7 +32,7 @@ export const App = () => {
       <ThemeProvider theme={swcTheme}>
         <NavigationBar />
         <Switch>
-          <Route path="/login">
+          <Route path="/my-account">
             <MyAccountPage />
           </Route>
           <Route path="/">
