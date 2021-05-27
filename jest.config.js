@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/libs/finances',
     '<rootDir>/libs/membership',
     '<rootDir>/libs/auth',
+    '<rootDir>/libs/account',
   ],
 };
