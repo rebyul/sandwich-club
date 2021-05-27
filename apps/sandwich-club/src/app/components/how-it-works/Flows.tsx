@@ -26,14 +26,14 @@ export const Flows: FC = () => {
       <Grid container direction="row" justify="center" spacing={3}>
         <Grid item xs>
           <FlowCard
-            imgUrl="/assets/Dish1.jpg"
+            imgUrl="/assets/Join.jpg"
             title="Sign up"
             subtitle="Sign up for free and enroll yourself to a given week"
           ></FlowCard>
         </Grid>
         <Grid item xs>
           <FlowCard
-            imgUrl="/assets/Sandwich.jpg"
+            imgUrl="/assets/Ingredients.jpg"
             title="Browse"
             subtitle="Browse the wide selection of fresh ingredients and make requests for upcoming material"
           ></FlowCard>
@@ -54,7 +54,7 @@ export const Flows: FC = () => {
         </Grid>
         <Grid item xs>
           <FlowCard
-            imgUrl="/assets/Dish1.jpg"
+            imgUrl="/assets/Sandwich.jpg"
             title="Fell valued"
             subtitle="Make delicious scrumptious sandwiches together and feel valued"
           ></FlowCard>

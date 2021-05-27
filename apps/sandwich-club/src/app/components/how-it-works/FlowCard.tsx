@@ -9,7 +9,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: 245,
+    minWidth: 295,
     Height: 0,
     border: 'none',
     boxShadow: 'none',
