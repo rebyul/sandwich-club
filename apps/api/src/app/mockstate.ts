@@ -20,18 +20,59 @@ export type WeekThing = {
 };
 
 const allIngredients: Ingredient[] = [
-  { name: 'Bread', id: 1, pricePerUnit: 1.99, unit: 'unit' },
+  {
+    name: 'Bread',
+    id: 1,
+    pricePerUnit: 1.99,
+    unit: 'unit',
+    img: 'https://static.countdown.co.nz/assets/product-images/zoom/9415142008554.jpg',
+  },
   { name: 'Cheese', id: 2, pricePerUnit: 1.99, unit: 'unit' },
-  { name: 'Lettuce', id: 3, pricePerUnit: 1.99, unit: 'unit' },
-  { name: 'Tomato', id: 4, pricePerUnit: 1.99, unit: 'unit' },
-  { name: 'Chicken', id: 5, pricePerUnit: 1.99, unit: 'unit' },
+  {
+    name: 'Lettuce',
+    id: 3,
+    pricePerUnit: 1.99,
+    unit: 'unit',
+    img: 'https://static.countdown.co.nz/assets/product-images/zoom/9421026690722.jpg',
+  },
+  {
+    name: 'Tomato',
+    id: 4,
+    pricePerUnit: 1.99,
+    unit: 'unit',
+    img: 'https://static.countdown.co.nz/assets/product-images/zoom/265691000009.jpg',
+  },
+  {
+    name: 'Chicken',
+    id: 5,
+    pricePerUnit: 1.99,
+    unit: 'unit',
+    img: 'https://static.countdown.co.nz/assets/product-images/zoom/9414735954537.jpg',
+  },
   { name: 'Ham', id: 6, pricePerUnit: 1.99, unit: 'unit' },
   { name: 'Salami', id: 7, pricePerUnit: 1.99, unit: 'unit' },
 ];
+
 const allMembers: Member[] = [
   {
     id: 1,
     name: 'Kelvin',
+  },
+  {
+    id: 2,
+    name: 'Marcus',
+  },
+  {
+    id: 3,
+    name: 'Max',
+  },
+  {
+    id: 4,
+    name: 'Bo',
+  },
+  {
+    id: 5,
+    name: 'Dom',
   },
 ];
 
