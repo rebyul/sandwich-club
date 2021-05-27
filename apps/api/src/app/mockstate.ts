@@ -9,23 +9,23 @@ export type WeekThing = {
   ingredients: Ingredient[];
 };
 
-export const allIngredients: Ingredient[] = ['Bread', 'Cheese', 'Lettuce', 'Tomato Sauce'];
-export const allMembers: Member[] = [
+const allIngredients: Ingredient[] = ['Bread', 'Cheese', 'Lettuce', 'Tomato Sauce'];
+const allMembers: Member[] = [
   {
     id: 1,
     name: 'Kelvin',
   },
 ];
 
-export const membersByWeek: { [week: string]: Member[] } = {
-  week21: [],
-};
-
-export const currentWeek = 'week21';
-
-export const weeklyThing: { [week: string]: WeekThing } = {
-  week21: {
+const weeklyThing: { [week: number]: WeekThing } = {
+  21: {
     members: [],
     ingredients: [],
   },
 };
+
+export const getAllIngredients = () => allIngredients;
+export const getAllMembers = () => allMembers;
+export const getMemberById = (id: number) => allMembers.find((m) => m.id === id);
+export const getCurrentWeek = () => 21;
+export const getWeekThing = (week: number) => weeklyThing[week];

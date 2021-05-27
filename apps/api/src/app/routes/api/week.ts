@@ -1,7 +1,13 @@
 import * as express from 'express';
-import { allIngredients, membersByWeek } from '../../mockstate';
+import { getWeekThing } from '../../mockstate';
 
 const router = express.Router();
+
+router.get('/:week', (req, res) => {
+  const week = +req.params.week;
+  const weekThing = getWeekThing(week);
+  res.send(weekThing);
+});
 
 /**
  * Things by week?
@@ -11,22 +17,34 @@ const router = express.Router();
  * - set ingredients?
  */
 router.get('/:week/ingredients', (req, res) => {
+  const week = +req.params.week;
+  const weekThing = getWeekThing(week);
   res.send({
-    allIngredients,
+    ingredients: weekThing.ingredients,
   });
 });
 
+router.post('/:week/ingredients', (req, res) => {
+  const week = +req.params.week;
+  const weekThing = getWeekThing(week);
+  weekThing.ingredients.push('juice');
+
+  res.sendStatus(200);
+});
+
 router.get('/:week/members', (req, res) => {
-  const week = req.params.week;
+  const week = +req.params.week;
+  const weekThing = getWeekThing(week);
   res.send({
-    members: membersByWeek[week],
+    members: weekThing.members,
   });
 });
 
 router.post('/:week/enrol', (req, res) => {
   const { user } = req.body;
-  const week = req.params.week;
-  membersByWeek[week].push(user);
+  const week = +req.params.week;
+  const weekThing = getWeekThing(week);
+  weekThing.members.push(user);
   res.sendStatus(200);
 });
 

@@ -1,13 +1,13 @@
 import * as express from 'express';
-import { allMembers } from '../../mockstate';
+import { getAllMembers, getMemberById } from '../../mockstate';
 
 const router = express.Router();
 
-router.get('/', (req, res) => res.send({ members: allMembers }));
+router.get('/', (req, res) => res.send({ members: getAllMembers() }));
 
 router.get('/:id', (req, res) => {
   const id = +req.params.id;
-  const member = allMembers.find((m) => m.id === id);
+  const member = getMemberById(id);
   res.send(member);
 });
 
