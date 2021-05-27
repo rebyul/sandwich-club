@@ -41,6 +41,8 @@ const useStyles = makeStyles((theme: Theme) =>
     titleBar: {
       background:
         'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+      borderBottomLeftRadius: 20,
+      borderBottomRightRadius: 20,
     },
   })
 );
@@ -98,7 +100,7 @@ export function RequestIngredients(props: RequestIngredientsProps) {
 
                     <GridListTileBar
                       title={tile.name}
-                      subtitle={<span>{tile.pricePerUnit}</span>}
+                      subtitle={<span>${tile.pricePerUnit}</span>}
                       classes={{
                         root: classes.titleBar,
                         title: classes.title,

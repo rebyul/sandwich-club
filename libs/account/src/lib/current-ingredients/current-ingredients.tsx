@@ -45,6 +45,8 @@ const useStyles = makeStyles((theme: Theme) =>
     titleBar: {
       background:
         'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+      borderBottomLeftRadius: 20,
+      borderBottomRightRadius: 20,
     },
   })
 );
@@ -94,8 +96,7 @@ export function CurrentIngredients(props: CurrentIngredientsProps) {
     },
     {
       value: 3,
-      name: '' +
-        'Anders',
+      name: '' + 'Anders',
       image: '../assets/Anders.jpg',
     },
   ];
