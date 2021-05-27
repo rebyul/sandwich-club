@@ -67,6 +67,24 @@ const allIngredients: Ingredient[] = [
     pricePerUnit: 3.99,
     img: 'https://static.countdown.co.nz/assets/product-images/large/270095000005.jpg',
   },
+  {
+    id: 8,
+    name: 'BBQ Sauce',
+    pricePerUnit: 3,
+    img: 'https://static.countdown.co.nz/assets/product-images/zoom/9419741000681.jpg',
+  },
+  {
+    id: 9,
+    name: 'Gherkins',
+    pricePerUnit: 3,
+    img: 'https://static.countdown.co.nz/assets/product-images/zoom/9416107513489.jpg',
+  },
+  {
+    id: 10,
+    name: 'Sriracha',
+    pricePerUnit: 6.99,
+    img: 'https://static.countdown.co.nz/assets/product-images/zoom/24463061095.jpg',
+  },
 ];
 
 const allMembers: Member[] = [
