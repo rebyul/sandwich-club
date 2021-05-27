@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, useHistory } from 'react-router-dom';
 import Modal from 'react-modal';
 
 const customStyles = {
@@ -25,6 +25,8 @@ export const App = () => {
     setIsLoginOpen(false);
   };
 
+  const history = useHistory();
+
   useEffect(() => {
     fetch('/api')
       .then((r) => r.json())
@@ -39,7 +41,7 @@ export const App = () => {
         <input type="text" /> <br />
         <input type="text" />
         <br />
-        <button>Login</button>
+        <button onClick={() => history.push('/login')}>Login</button>
       </Modal>
       {/* <BrowserRouter>
         <div className="app">
