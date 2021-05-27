@@ -2,7 +2,13 @@ import { Grid, makeStyles, Typography } from '@material-ui/core';
 import React, { FC } from 'react';
 import { Section } from '../components/section/Section';
 
-const useStyles = makeStyles({});
+const useStyles = makeStyles({
+  gridBg: {
+    backgroundSize: '40px 40px',
+    backgroundImage:
+      'linear-gradient(to right, grey 1px, transparent 1px), linear-gradient(to bottom, grey 1px, transparent 1px)',
+  },
+});
 
 function HomePage() {
   const classes = useStyles();
