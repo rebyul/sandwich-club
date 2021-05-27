@@ -28,10 +28,27 @@ const allIngredients: Ingredient[] = [
   { name: 'Ham', id: 6, pricePerUnit: 1.99, unit: 'unit' },
   { name: 'Salami', id: 7, pricePerUnit: 1.99, unit: 'unit' },
 ];
+
 const allMembers: Member[] = [
   {
     id: 1,
     name: 'Kelvin',
+  },
+  {
+    id: 2,
+    name: 'Marcus',
+  },
+  {
+    id: 3,
+    name: 'Max',
+  },
+  {
+    id: 4,
+    name: 'Bo',
+  },
+  {
+    id: 5,
+    name: 'Dom',
   },
 ];
 
