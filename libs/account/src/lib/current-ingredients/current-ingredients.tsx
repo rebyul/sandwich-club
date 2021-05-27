@@ -6,9 +6,8 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
-import { Grow, Paper, Slide } from '@material-ui/core';
+import { Paper, Slide } from '@material-ui/core';
 
-/ eslint-disable-next-line /;
 export interface CurrentIngredientsProps {
   date: number;
 }
