@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none',
   },
   homeLinkIcon: {
-    height: '1.2em',
+    height: '2rem',
   },
   appbar: {
     boxShadow: 'none',
