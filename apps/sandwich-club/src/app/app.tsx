@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
   homeLinkIcon: {
     height: '1.2em',
   },
+  appbar: {
+    boxShadow: 'none',
+  },
 }));
 
 export const App = () => {
@@ -48,7 +51,7 @@ export const App = () => {
 
   return (
     <BrowserRouter>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.appbar}>
         <Toolbar className={classes.headerToolbar}>
           <Typography variant="h6" className={classes.title}>
             <Link className={classes.homeLink} to="/">
@@ -62,7 +65,7 @@ export const App = () => {
       <LoginModal modalIsOpen={modalIsOpen} closeLoginModal={closeLoginModal} />
 
       <Switch>
-        <Route path="/login">
+        <Route path="/my-account">
           <MyAccountPage />
         </Route>
         <Route path="/">

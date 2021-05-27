@@ -1,5 +1,12 @@
 import React from 'react';
+import { WeekSelector, CurrentIngredients, RequestIngredients } from '@sandwich-club/account';
 
 export default function MyAccountPage() {
-  return <div>I'm a login page</div>;
+  return (
+    <>
+      <WeekSelector /> <br />
+      <CurrentIngredients /> <br />
+      <RequestIngredients />
+    </>
+  );
 }

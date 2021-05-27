@@ -51,7 +51,7 @@ export function LoginModal(props: LoginModalProps) {
             Cancel
           </Button>
           <Button onClick={closeLoginModal} color="primary">
-            <Link to="/login">Login</Link>
+            <Link to="/my-account">Login</Link>
           </Button>
         </DialogActions>
       </>
