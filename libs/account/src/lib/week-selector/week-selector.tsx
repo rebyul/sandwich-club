@@ -4,9 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { CalendarToday, CalendarTodayOutlined, CalendarViewDay } from '@material-ui/icons';
+import CurrentIngredients from '../current-ingredients/current-ingredients';
+import RequestIngredients from '../request-ingredients/request-ingredients';
 
 /* eslint-disable-next-line */
 TabPanel.propTypes = {
@@ -47,11 +48,7 @@ function TabPanel(props) {
       aria-labelledby={`scrollable-force-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      {value === index && <Box p={3}>{children}</Box>}
     </div>
   );
 }
@@ -86,25 +83,32 @@ export function WeekSelector() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        Week One
+        <CurrentIngredients date={value} />
+        <RequestIngredients date={value} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Week Two
+        <CurrentIngredients date={value} />
+        <RequestIngredients date={value} />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Week Three
+        <CurrentIngredients date={value} />
+        <RequestIngredients date={value} />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Week Four
+        <CurrentIngredients date={value} />
+        <RequestIngredients date={value} />
       </TabPanel>
       <TabPanel value={value} index={4}>
-        Week Five
+        <CurrentIngredients date={value} />
+        <RequestIngredients date={value} />
       </TabPanel>
       <TabPanel value={value} index={5}>
-        Week Six
+        <CurrentIngredients date={value} />
+        <RequestIngredients date={value} />
       </TabPanel>
       <TabPanel value={value} index={6}>
-        Week Seven
+        <CurrentIngredients date={value} />
+        <RequestIngredients date={value} />
       </TabPanel>
     </div>
   );

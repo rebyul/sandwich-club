@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none',
   },
   homeLinkIcon: {
-    height: '1.2em',
+    height: '2rem',
   },
   appbar: {
     boxShadow: 'none',
@@ -40,12 +40,11 @@ function NavigationBar() {
 
   return (
     <>
-      <AppBar position="static" className={classes.appbar}>
+      <AppBar position="sticky" className={classes.appbar}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <Link className={classes.homeLink} to="/">
-              <img src="/assets/LunchBunchIcon.png" className={classes.homeLinkIcon} alt="icon" />
-              Lunch Bunch
+              <img src="/assets/LunchBunch-logo.png" className={classes.homeLinkIcon} alt="icon" />
             </Link>
           </Typography>
           <Button onClick={openLoginModal}>Login</Button>
