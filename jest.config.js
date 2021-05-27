@@ -4,5 +4,6 @@ module.exports = {
     '<rootDir>/apps/api',
     '<rootDir>/libs/finances',
     '<rootDir>/libs/membership',
+    '<rootDir>/libs/auth',
   ],
 };
