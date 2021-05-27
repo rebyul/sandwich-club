@@ -6,6 +6,10 @@ const useStyles = makeStyles((theme) => ({
   works: {
     backgroundColor: theme.palette.background.paper,
   },
+  gridPaper: {
+    backgroundSize: '35px 35px',
+    backgroundImage: `linear-gradient(to right, #C0C0C0 1px, transparent 1px), linear-gradient(to bottom, #C0C0C0 1px, ${theme.palette.secondary.main} 1px)`,
+  },
 }));
 
 function HomePage() {
@@ -13,11 +17,9 @@ function HomePage() {
 
   return (
     <>
-      <Section>
-        {/* <Grid alignItems="center" justify="center"> */}
+      <Grid container justify="center" alignItems="center" className={classes.gridPaper}>
         <img src="/assets/LunchBunch.png" height="auto" alt="premium-lunch-bunch" />
-        {/* </Grid> */}
-      </Section>
+      </Grid>
       <Section />
       <a href="">Enrol into this weeks Sandwich Club</a>
       <br />
