@@ -6,8 +6,9 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
-import { Paper, Slide } from '@material-ui/core';
+import { Grid, Paper, Slide, Typography } from '@material-ui/core';
 import { PlusOneOutlined } from '@material-ui/icons';
+import LockIcon from '@material-ui/icons/Lock';
 
 export interface RequestIngredientsProps {
   date: number;
@@ -50,45 +51,62 @@ export function RequestIngredients(props: RequestIngredientsProps) {
   }, []);
 
   if (date === 0 || !ingredients) {
-    return <></>;
+    return (
+      <Grid container spacing={1} direction="column" justify="center" alignItems="center">
+        <Grid item xs={12}>
+          <Typography variant="h3" gutterBottom>
+            Request Ingredients
+          </Typography>
+          <Typography variant="h4" gutterBottom align="center">
+            Locked <LockIcon />
+          </Typography>
+        </Grid>
+      </Grid>
+    );
   }
 
   return (
-    <>
-      <h1>Request Ingredients for Week {date + 1}</h1>
-      <div className={classes.root}>
-        <GridList cellHeight={180} className={classes.gridList} cols={5}>
-          {ingredients.map((tile) => (
-            <GridListTile key={tile.id} cols={1}>
-              <Slide direction="up" in={true}>
-                <Paper elevation={0} className={classes.paper}>
-                  {tile.img && (
-                    <img
-                      src={tile.img}
-                      alt={tile.name}
-                      style={{ width: '100%', height: '100%', left: '25%' }}
-                    />
-                  )}
+    <Grid container spacing={1} direction="column" justify="center" alignItems="center">
+      <Grid item xs={12}>
+        <Typography variant="h3" gutterBottom>
+          Request Ingredients
+        </Typography>
+      </Grid>
+      <Grid item xs={12}>
+        <div className={classes.root}>
+          <GridList cellHeight={180} className={classes.gridList} cols={5}>
+            {ingredients.map((tile) => (
+              <GridListTile key={tile.id} cols={1}>
+                <Slide direction="up" in={true}>
+                  <Paper elevation={0} className={classes.paper}>
+                    {tile.img && (
+                      <img
+                        src={tile.img}
+                        alt={tile.name}
+                        style={{ width: '100%', height: '100%', left: '25%' }}
+                      />
+                    )}
 
-                  <GridListTileBar
-                    title={tile.name}
-                    subtitle={<span>{tile.pricePerUnit}</span>}
-                    actionIcon={
-                      <IconButton
-                        aria-label={`Request Ingredient ${tile.name}`}
-                        className={classes.icon}
-                      >
-                        <PlusOneOutlined />
-                      </IconButton>
-                    }
-                  />
-                </Paper>
-              </Slide>
-            </GridListTile>
-          ))}
-        </GridList>
-      </div>
-    </>
+                    <GridListTileBar
+                      title={tile.name}
+                      subtitle={<span>{tile.pricePerUnit}</span>}
+                      actionIcon={
+                        <IconButton
+                          aria-label={`Request Ingredient ${tile.name}`}
+                          className={classes.icon}
+                        >
+                          <PlusOneOutlined />
+                        </IconButton>
+                      }
+                    />
+                  </Paper>
+                </Slide>
+              </GridListTile>
+            ))}
+          </GridList>
+        </div>
+      </Grid>
+    </Grid>
   );
 }
 

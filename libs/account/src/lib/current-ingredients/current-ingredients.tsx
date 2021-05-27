@@ -6,7 +6,12 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
-import { Paper, Slide } from '@material-ui/core';
+import { Avatar, Grid, Paper, Slide, Typography } from '@material-ui/core';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 
 export interface CurrentIngredientsProps {
   date: number;
@@ -61,36 +66,89 @@ export function CurrentIngredients(props: CurrentIngredientsProps) {
   const { date } = props;
   const classes = useStyles();
 
+  const users = [
+    {
+      value: 0,
+      name: 'Marcus',
+      image: '../assets/Marcus.jpg',
+    },
+    {
+      value: 1,
+      name: 'Han Bo',
+      image: '../assets/Marcus.jpg',
+    },
+    {
+      value: 2,
+      name: 'Dom',
+      image: '../assets/Marcus.jpg',
+    },
+    {
+      value: 3,
+      name: 'Anders',
+      image: '../assets/Marcus.jpg',
+    },
+  ];
+
   return (
-    <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList} cols={3}>
-        <GridListTile key="Subheader" cols={3} style={{ height: 'auto' }}>
-          <ListSubheader component="div">Week {date + 1}</ListSubheader>
-        </GridListTile>
-        {tileData.map((tile) => (
-          <GridListTile key={tile.img} cols={1}>
-            <Slide direction="up" in={true}>
-              <Paper elevation={0} className={classes.paper}>
-                <img
-                  src={tile.img}
-                  alt={tile.title}
-                  style={{ width: '100%', height: '100%', left: '25%' }}
-                />
-                <GridListTileBar
-                  title={tile.title}
-                  subtitle={<span>{tile.cost}</span>}
-                  actionIcon={
-                    <IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
-                      <InfoIcon />
-                    </IconButton>
-                  }
-                />
-              </Paper>
-            </Slide>
-          </GridListTile>
-        ))}
-      </GridList>
-    </div>
+    <Grid container spacing={3}>
+      <Grid item xs={3}></Grid>
+      <Grid item xs={6}>
+        <div className={classes.root}>
+          <GridList cellHeight={180} className={classes.gridList} cols={3}>
+            <GridListTile key="Subheader" cols={3} style={{ height: 'auto' }}>
+              <ListSubheader component="div">Week {date + 1}</ListSubheader>
+            </GridListTile>
+            {tileData.map((tile) => (
+              <GridListTile key={tile.img} cols={1}>
+                <Slide direction="up" in={true}>
+                  <Paper elevation={0} className={classes.paper}>
+                    <img
+                      src={tile.img}
+                      alt={tile.title}
+                      style={{ width: '100%', height: '100%', left: '25%' }}
+                    />
+                    <GridListTileBar
+                      title={tile.title}
+                      subtitle={<span>{tile.cost}</span>}
+                      actionIcon={
+                        <IconButton
+                          aria-label={`info about ${tile.title}`}
+                          className={classes.icon}
+                        >
+                          <InfoIcon />
+                        </IconButton>
+                      }
+                    />
+                  </Paper>
+                </Slide>
+              </GridListTile>
+            ))}
+          </GridList>
+        </div>
+      </Grid>
+      <Grid item xs={3}>
+        <Typography variant="h5" gutterBottom>
+          Enrolled people
+        </Typography>
+        <List dense className={classes.root}>
+          {users.map((user) => {
+            const labelId = `checkbox-list-secondary-label-${user.value}`;
+            return (
+              <ListItem key={user.value} button>
+                <ListItemAvatar>
+                  <Avatar alt={`Avatar n°${user.value + 1}`} src={user.image} />
+                </ListItemAvatar>
+                <ListItemText id={labelId} primary={user.name} />
+              </ListItem>
+            );
+          })}
+        </List>
+        <Typography variant="h5" gutterBottom>
+          Cost per person: <br />
+          $4.54
+        </Typography>
+      </Grid>
+    </Grid>
   );
 }
 

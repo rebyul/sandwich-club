@@ -1,7 +1,7 @@
 import { Button, Container, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import React, { FC } from 'react';
-import { Flows } from '../components/how-it-works/Flows';
 import clsx from 'clsx';
+import { Flows } from '../components/how-it-works/Flows';
 
 const useStyles = makeStyles((theme) => ({
   gridPaper: {
