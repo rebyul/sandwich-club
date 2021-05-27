@@ -1,6 +1,8 @@
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 import React, { FC } from 'react';
 import { Section } from '../components/section/Section';
+import { FlowCard } from '../components/container/FlowCard';
+import { Flows } from '../components/container/Flows';
 
 const useStyles = makeStyles({});
 
@@ -19,7 +21,7 @@ function HomePage() {
       <br />
       <br />
       <Section>
-        <Typography variant="h2">How it works?</Typography>
+        <Flows></Flows>
       </Section>
       <br />
       <h2>reviews</h2>
