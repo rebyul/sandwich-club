@@ -1,20 +1,9 @@
-import { DialogActions } from '@material-ui/core';
-import { TextField } from '@material-ui/core';
-import {
-  AppBar,
-  Backdrop,
-  Button,
-  Dialog,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  makeStyles,
-  Toolbar,
-  Typography,
-} from '@material-ui/core';
+import { AppBar, Button, makeStyles, Toolbar, Typography } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Route, useHistory, Switch, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import HomePage from './pages/home.page';
+import MyAccountPage from './pages/my-account.page';
+import { LoginModal } from '@sandwich-club/auth';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
   homeLink: {
     color: '#fff',
     textDecoration: 'none',
+  },
+  homeLinkIcon: {
+    height: '1.2em',
   },
 }));
 
@@ -60,49 +52,18 @@ export const App = () => {
         <Toolbar className={classes.headerToolbar}>
           <Typography variant="h6" className={classes.title}>
             <Link className={classes.homeLink} to="/">
+              <img src="/assets/LunchBunchIcon.png" className={classes.homeLinkIcon} />
               Lunch Bunch
             </Link>
           </Typography>
           <Button onClick={openLoginModal}>Login</Button>
         </Toolbar>
       </AppBar>
-      <Dialog
-        open={modalIsOpen}
-        onClose={closeLoginModal}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <>
-          <DialogTitle id="form-dialog-title">Welcome back to Lunch Bunch!</DialogTitle>
-          <DialogContent>
-            <DialogContentText>Login to manage your lunch bunch account</DialogContentText>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label="Email Address"
-              type="email"
-              fullWidth
-            />
-            <TextField margin="dense" id="password" label="Password" type="password" fullWidth />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={closeLoginModal} color="primary">
-              Cancel
-            </Button>
-            <Button onClick={closeLoginModal} color="primary">
-              <Link to="/login">Login</Link>
-            </Button>
-          </DialogActions>
-        </>
-      </Dialog>
+      <LoginModal modalIsOpen={modalIsOpen} closeLoginModal={closeLoginModal} />
 
       <Switch>
         <Route path="/login">
-          <h1>Login Page?</h1>
+          <MyAccountPage />
         </Route>
         <Route path="/">
           <HomePage />
