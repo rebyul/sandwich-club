@@ -1,7 +1,9 @@
 export type Ingredient = {
   id: number;
   name: string;
-  price: string;
+  pricePerUnit: number;
+  unit?: string;
+  img?: string;
 };
 
 export type Member = {
@@ -18,13 +20,13 @@ export type WeekThing = {
 };
 
 const allIngredients: Ingredient[] = [
-  { name: 'Bread', id: 1, price: '1.99' },
-  { name: 'Cheese', id: 2, price: '1.99' },
-  { name: 'Lettuce', id: 3, price: '1.99' },
-  { name: 'Tomato', id: 4, price: '1.99' },
-  { name: 'Chicken', id: 5, price: '1.99' },
-  { name: 'Ham', id: 6, price: '1.99' },
-  { name: 'Salami', id: 7, price: '1.99' },
+  { name: 'Bread', id: 1, pricePerUnit: 1.99, unit: 'unit' },
+  { name: 'Cheese', id: 2, pricePerUnit: 1.99, unit: 'unit' },
+  { name: 'Lettuce', id: 3, pricePerUnit: 1.99, unit: 'unit' },
+  { name: 'Tomato', id: 4, pricePerUnit: 1.99, unit: 'unit' },
+  { name: 'Chicken', id: 5, pricePerUnit: 1.99, unit: 'unit' },
+  { name: 'Ham', id: 6, pricePerUnit: 1.99, unit: 'unit' },
+  { name: 'Salami', id: 7, pricePerUnit: 1.99, unit: 'unit' },
 ];
 const allMembers: Member[] = [
   {
