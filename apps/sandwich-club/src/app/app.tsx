@@ -94,10 +94,7 @@ export const App = () => {
         <>
           <DialogTitle id="form-dialog-title">Welcome back to Lunch Bunch!</DialogTitle>
           <DialogContent>
-            <DialogContentText>
-              To subscribe to this website, please enter your email address here. We will send
-              updates occasionally.
-            </DialogContentText>
+            <DialogContentText>Login to manage your lunch bunch account</DialogContentText>
             <TextField
               autoFocus
               margin="dense"
