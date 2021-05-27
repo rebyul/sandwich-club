@@ -1,15 +1,7 @@
-import {
-  Backdrop,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  makeStyles,
-  TextField,
-} from '@material-ui/core';
-import { Dialog } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
-import React, { useState } from 'react';
+import { LoginModal } from '@sandwich-club/auth';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -25,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
   homeLink: {
     color: theme.palette.common.white,
     textDecoration: 'none',
+  },
+  homeLinkIcon: {
+    height: '1.2em',
   },
 }));
 
@@ -46,45 +41,14 @@ function NavigationBar() {
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <Link className={classes.homeLink} to="/">
+              <img src="/assets/LunchBunchIcon.png" className={classes.homeLinkIcon} alt="icon" />
               Lunch Bunch
             </Link>
           </Typography>
           <Button onClick={openLoginModal}>Login</Button>
         </Toolbar>
       </AppBar>
-      <Dialog
-        open={modalIsOpen}
-        onClose={closeLoginModal}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <>
-          <DialogTitle id="form-dialog-title">Welcome back to Lunch Bunch!</DialogTitle>
-          <DialogContent>
-            <DialogContentText>Login to manage your lunch bunch account</DialogContentText>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label="Email Address"
-              type="email"
-              fullWidth
-            />
-            <TextField margin="dense" id="password" label="Password" type="password" fullWidth />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={closeLoginModal} color="primary">
-              Cancel
-            </Button>
-            <Button onClick={closeLoginModal} color="primary">
-              <Link to="/login">Login</Link>
-            </Button>
-          </DialogActions>
-        </>
-      </Dialog>
+      <LoginModal modalIsOpen={modalIsOpen} closeLoginModal={closeLoginModal} />
     </>
   );
 }

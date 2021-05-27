@@ -1,10 +1,10 @@
 import { createMuiTheme, CssBaseline, ThemeProvider } from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { NavigationBar } from './components/nav/NavigationBar';
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HomePage from './pages/home.page';
+import MyAccountPage from './pages/my-account.page';
 
 const swcTheme = createMuiTheme({
   palette: {
@@ -33,7 +33,7 @@ export const App = () => {
         <NavigationBar />
         <Switch>
           <Route path="/login">
-            <h1>Login Page?</h1>
+            <MyAccountPage />
           </Route>
           <Route path="/">
             <HomePage />
