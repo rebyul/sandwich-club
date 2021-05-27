@@ -40,7 +40,7 @@ function NavigationBar() {
 
   return (
     <>
-      <AppBar position="static" className={classes.appbar}>
+      <AppBar position="sticky" className={classes.appbar}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <Link className={classes.homeLink} to="/">
