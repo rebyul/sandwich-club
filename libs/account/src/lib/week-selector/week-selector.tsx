@@ -73,13 +73,13 @@ export function WeekSelector() {
           textColor="primary"
           aria-label="scrollable force tabs example"
         >
-          <Tab label="Week One" icon={<CalendarTodayOutlined />} {...a11yProps(0)} />
-          <Tab label="Week Two" icon={<CalendarToday />} {...a11yProps(1)} />
-          <Tab label="Week Three" icon={<CalendarToday />} {...a11yProps(2)} />
-          <Tab label="Week Four" icon={<CalendarToday />} {...a11yProps(3)} />
-          <Tab label="Week Five" icon={<CalendarToday />} {...a11yProps(4)} />
-          <Tab label="Week Six" icon={<CalendarToday />} {...a11yProps(5)} />
-          <Tab label="Week Seven" icon={<CalendarToday />} {...a11yProps(6)} />
+          <Tab label="31/5/2021" icon={<CalendarTodayOutlined />} {...a11yProps(0)} />
+          <Tab label="7/6/2021" icon={<CalendarToday />} {...a11yProps(1)} />
+          <Tab label="14/6/2021" icon={<CalendarToday />} {...a11yProps(2)} />
+          <Tab label="21/6/2021" icon={<CalendarToday />} {...a11yProps(3)} />
+          <Tab label="28/6/2021" icon={<CalendarToday />} {...a11yProps(4)} />
+          <Tab label="5/7/2021" icon={<CalendarToday />} {...a11yProps(5)} />
+          <Tab label="12/7/2021" icon={<CalendarToday />} {...a11yProps(6)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>

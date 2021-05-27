@@ -1,5 +1,6 @@
 import { Button, Container, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import React, { FC } from 'react';
+import { Reviews } from '../components/reviewSection/Reviews'
 import clsx from 'clsx';
 
 const useStyles = makeStyles((theme) => ({
@@ -30,7 +31,7 @@ function HomePage() {
         </Button>
       </HomePageHero>
 
-      <h2>reviews</h2>
+      <Reviews />
     </>
   );
 }
