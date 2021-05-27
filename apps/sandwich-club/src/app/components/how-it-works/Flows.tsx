@@ -5,8 +5,9 @@ import { FlowCard } from './FlowCard';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginLeft: '96px',
-    marginRight: '96px',
+    maxWidth: '80vw',
+    margin: 'auto',
+    marginTop: '16px',
   },
 }));
 
