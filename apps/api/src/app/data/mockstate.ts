@@ -59,7 +59,7 @@ const allIngredients: Ingredient[] = [
     id: 6,
     pricePerUnit: 1.99,
     unit: '100g',
-    img: 'https://static.countdown.co.nz/assets/product-images/zoom/277565000008.jpg"',
+    img: 'https://static.countdown.co.nz/assets/product-images/zoom/272418000006.jpg',
   },
   {
     name: 'Salami',
