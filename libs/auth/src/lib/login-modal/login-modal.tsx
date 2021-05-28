@@ -17,10 +17,11 @@ import { Link } from 'react-router-dom';
 export interface LoginModalProps {
   modalIsOpen: boolean;
   closeLoginModal: () => void;
+  setUserLoggedIn: (boolean) => void;
 }
 
 export function LoginModal(props: LoginModalProps) {
-  const { modalIsOpen, closeLoginModal } = props;
+  const { modalIsOpen, closeLoginModal, setUserLoggedIn } = props;
 
   return (
     <Dialog
@@ -50,7 +51,13 @@ export function LoginModal(props: LoginModalProps) {
           <Button onClick={closeLoginModal} color="primary">
             Cancel
           </Button>
-          <Button onClick={closeLoginModal} color="primary">
+          <Button
+            onClick={() => {
+              closeLoginModal();
+              setUserLoggedIn(true);
+            }}
+            color="primary"
+          >
             <Link to="/my-account">Login</Link>
           </Button>
         </DialogActions>

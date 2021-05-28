@@ -32,8 +32,8 @@ function HomePage() {
         </Button>
       </HomePageHero>
 
-      <Flows></Flows>
-      <Reviews></Reviews>
+      <Flows />
+      <Reviews />
     </>
   );
 }

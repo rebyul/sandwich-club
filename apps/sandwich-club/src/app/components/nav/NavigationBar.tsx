@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 function NavigationBar() {
   const classes = useStyles();
   const [modalIsOpen, setIsLoginOpen] = useState(false);
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
 
   const openLoginModal = () => {
     setIsLoginOpen(true);
@@ -47,10 +48,35 @@ function NavigationBar() {
               <img src="/assets/LunchBunch-logo.png" className={classes.homeLinkIcon} alt="icon" />
             </Link>
           </Typography>
-          <Button onClick={openLoginModal}>Login</Button>
+          {!userLoggedIn && (
+            <Button onClick={openLoginModal} className={classes.homeLink}>
+              Login
+            </Button>
+          )}
+          {userLoggedIn && (
+            <>
+              <Button onClick={() => setUserLoggedIn(false)}>
+                {' '}
+                <Link className={classes.homeLink} to="/my-account">
+                  My Account
+                </Link>
+              </Button>
+
+              <Button onClick={() => setUserLoggedIn(false)}>
+                {' '}
+                <Link className={classes.homeLink} to="/">
+                  Logout
+                </Link>
+              </Button>
+            </>
+          )}
         </Toolbar>
       </AppBar>
-      <LoginModal modalIsOpen={modalIsOpen} closeLoginModal={closeLoginModal} />
+      <LoginModal
+        modalIsOpen={modalIsOpen}
+        closeLoginModal={closeLoginModal}
+        setUserLoggedIn={setUserLoggedIn}
+      />
     </>
   );
 }

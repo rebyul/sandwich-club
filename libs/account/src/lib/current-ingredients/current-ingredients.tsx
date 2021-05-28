@@ -6,7 +6,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
-import { Avatar, Grid, Paper, Slide, Typography } from '@material-ui/core';
+import { Avatar, Grid, Paper, Fade, Typography } from '@material-ui/core';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
@@ -30,11 +30,23 @@ const useStyles = makeStyles((theme: Theme) =>
       width: 800,
       height: 450,
     },
+    gridListItem: {
+      borderRadius: 25,
+    },
     icon: {
       color: 'rgba(255, 255, 255, 0.54)',
     },
     paper: {
       margin: theme.spacing(1),
+    },
+    title: {
+      color: 'white',
+    },
+    titleBar: {
+      background:
+        'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+      borderBottomLeftRadius: 20,
+      borderBottomRightRadius: 20,
     },
   })
 );
@@ -75,17 +87,17 @@ export function CurrentIngredients(props: CurrentIngredientsProps) {
     {
       value: 1,
       name: 'Han Bo',
-      image: '../assets/Marcus.jpg',
+      image: '../assets/Hanbo.png',
     },
     {
       value: 2,
       name: 'Dom',
-      image: '../assets/Marcus.jpg',
+      image: '../assets/Dom.jpg',
     },
     {
       value: 3,
-      name: 'Anders',
-      image: '../assets/Marcus.jpg',
+      name: '' + 'Anders',
+      image: '../assets/Anders.jpg',
     },
   ];
 
@@ -99,8 +111,8 @@ export function CurrentIngredients(props: CurrentIngredientsProps) {
               <ListSubheader component="div">Week {date + 1}</ListSubheader>
             </GridListTile>
             {tileData.map((tile) => (
-              <GridListTile key={tile.img} cols={1}>
-                <Slide direction="up" in={true}>
+              <GridListTile key={tile.img} cols={1} className={classes.gridListItem}>
+                <Fade timeout={Math.random() * (1000 - 100) + 100} in={true}>
                   <Paper elevation={0} className={classes.paper}>
                     <img
                       src={tile.img}
@@ -110,6 +122,10 @@ export function CurrentIngredients(props: CurrentIngredientsProps) {
                     <GridListTileBar
                       title={tile.title}
                       subtitle={<span>{tile.cost}</span>}
+                      classes={{
+                        root: classes.titleBar,
+                        title: classes.title,
+                      }}
                       actionIcon={
                         <IconButton
                           aria-label={`info about ${tile.title}`}
@@ -120,7 +136,7 @@ export function CurrentIngredients(props: CurrentIngredientsProps) {
                       }
                     />
                   </Paper>
-                </Slide>
+                </Fade>
               </GridListTile>
             ))}
           </GridList>

@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { getAllMembers, getMemberById } from '../../mockstate';
+import { getAllMembers, getMemberById } from '../../data/mockstate';
 
 const router = express.Router();
 
