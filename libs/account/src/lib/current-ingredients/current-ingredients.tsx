@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -6,7 +6,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
-import { Avatar, Grid, Paper, Fade, Typography } from '@material-ui/core';
+import { Avatar, Grid, Paper, Fade, Typography, Button } from '@material-ui/core';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
@@ -78,7 +78,7 @@ export function CurrentIngredients(props: CurrentIngredientsProps) {
   const { date } = props;
   const classes = useStyles();
 
-  const users = [
+  const [users, setUsers] = useState([
     {
       value: 0,
       name: 'Marcus',
@@ -99,10 +99,11 @@ export function CurrentIngredients(props: CurrentIngredientsProps) {
       name: '' + 'Anders',
       image: '../assets/Anders.jpg',
     },
-  ];
+  ]);
+  const [costs, setCosts] = useState(18.73);
 
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={3} style={{ marginBottom: '64px' }}>
       <Grid item xs={3}></Grid>
       <Grid item xs={6}>
         <div className={classes.root}>
@@ -159,9 +160,25 @@ export function CurrentIngredients(props: CurrentIngredientsProps) {
             );
           })}
         </List>
+        {date !== 0 && users.length < 5 && (
+          <Button
+            onClick={() => {
+              setUsers([
+                ...users,
+                {
+                  name: 'Kelvin',
+                  image: '../assets/kelvin.png',
+                  value: 9,
+                },
+              ]);
+            }}
+          >
+            Enrol now!
+          </Button>
+        )}
         <Typography variant="h5" gutterBottom>
           Cost per person: <br />
-          $4.54
+          {`$${(costs / users.length).toFixed(2)}`}
         </Typography>
       </Grid>
     </Grid>

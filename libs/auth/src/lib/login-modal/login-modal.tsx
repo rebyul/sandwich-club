@@ -42,6 +42,7 @@ export function LoginModal(props: LoginModalProps) {
             margin="dense"
             id="name"
             label="Email Address"
+            autoComplete="off"
             type="email"
             fullWidth
           />
