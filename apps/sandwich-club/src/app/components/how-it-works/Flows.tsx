@@ -18,12 +18,12 @@ export const Flows: FC = () => {
       className={classes.root}
       container
       direction="column"
-      justify="center"
+      justifyContent="center"
       alignItems="center"
     >
       <Typography variant="h3">How it works</Typography> <br />
       <br />
-      <Grid container direction="row" justify="center" spacing={3}>
+      <Grid container direction="row" justifyContent="center" spacing={3}>
         <Grid item xs={12} sm={4}>
           <FlowCard
             imgUrl="/assets/Join.jpg"

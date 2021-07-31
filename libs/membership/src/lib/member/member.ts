@@ -1,5 +1,5 @@
 class Member {
-  constructor(public readonly id: String, public readonly name: string) {}
+  constructor(public readonly id: string, public readonly name: string) {}
 }
 
 export { Member };

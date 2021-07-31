@@ -63,7 +63,7 @@ export function RequestIngredients(props: RequestIngredientsProps) {
 
   if (date === 0 || !ingredients) {
     return (
-      <Grid container spacing={1} direction="column" justify="center" alignItems="center">
+      <Grid container spacing={1} direction="column" justifyContent="center" alignItems="center">
         <Grid item xs={12}>
           <Typography variant="h3" gutterBottom>
             Request Ingredients
@@ -77,7 +77,7 @@ export function RequestIngredients(props: RequestIngredientsProps) {
   }
 
   return (
-    <Grid container spacing={1} direction="column" justify="center" alignItems="center">
+    <Grid container spacing={1} direction="column" justifyContent="center" alignItems="center">
       <Grid item xs={12}>
         <Typography variant="h3" gutterBottom>
           Request Ingredients

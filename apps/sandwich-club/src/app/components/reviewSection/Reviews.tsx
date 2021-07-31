@@ -79,14 +79,13 @@ function Reviews() {
         <Grid
           container
           spacing={4}
-          justify="center"
+          justifyContent="center"
           alignItems="stretch"
-          xs={12}
           className={classes.container}
         >
           {reviewData.map((review) => {
             return (
-              <Grid item xs={12} sm={4}>
+              <Grid key={review.name} item xs={12} sm={4}>
                 <Card className={classes.reviewCard}>
                   <div className={classes.reviewBody}>{review.body}</div>
                   <div className={classes.reviewerName}>{review.name}</div>

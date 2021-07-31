@@ -15,7 +15,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const HomePageHero: FC<{ className?: string }> = ({ className, children }) => (
-  <Grid container direction="column" justify="center" alignItems="center" className={className}>
+  <Grid
+    container
+    direction="column"
+    justifyContent="center"
+    alignItems="center"
+    className={className}
+  >
     {children}
   </Grid>
 );

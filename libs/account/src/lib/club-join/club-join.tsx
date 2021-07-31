@@ -11,8 +11,17 @@ import Typography from '@material-ui/core/Typography';
 import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles({
-  root: {
+  card: {
     maxWidth: 345,
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  gridItem: {
+    alignSelf: 'stretch',
+  },
+  cardActionArea: {
+    marginBottom: 'auto',
   },
   media: {
     height: 140,
@@ -24,13 +33,11 @@ export interface ClubJoinProps {}
 export function ClubJoin(props: ClubJoinProps) {
   const classes = useStyles();
 
-  const JoinSandwichClubLink = (props) => <Link to="/sandwich-club" {...props} />;
-
   return (
-    <Grid container spacing={3} direction="row" justify="flex-start" alignItems="flex-start">
-      <Grid item xs={4}>
-        <Card className={classes.root}>
-          <CardActionArea>
+    <Grid container spacing={3} direction="row" justifyContent="flex-start" alignItems="flex-start">
+      <Grid item xs={4} className={classes.gridItem}>
+        <Card className={classes.card}>
+          <CardActionArea className={classes.cardActionArea}>
             <CardMedia
               className={classes.media}
               image="../assets/sandwich-club.jpg"
@@ -63,9 +70,9 @@ export function ClubJoin(props: ClubJoinProps) {
           </CardActions>
         </Card>
       </Grid>
-      <Grid item xs={4}>
-        <Card className={classes.root}>
-          <CardActionArea>
+      <Grid item xs={4} className={classes.gridItem}>
+        <Card className={classes.card}>
+          <CardActionArea className={classes.cardActionArea}>
             <CardMedia
               className={classes.media}
               image="../assets/pizza-club.jpg"
@@ -78,10 +85,10 @@ export function ClubJoin(props: ClubJoinProps) {
               <Typography variant="body2" color="textSecondary" component="p">
                 Not associated with the pizza club chain but argueably better pizzas are produced
                 here.
+                {/* <br />
                 <br />
                 <br />
-                <br />
-                <br />
+                <br /> */}
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -92,9 +99,9 @@ export function ClubJoin(props: ClubJoinProps) {
           </CardActions>
         </Card>
       </Grid>
-      <Grid item xs={4}>
-        <Card className={classes.root}>
-          <CardActionArea>
+      <Grid item xs={4} className={classes.gridItem}>
+        <Card className={classes.card}>
+          <CardActionArea className={classes.cardActionArea}>
             <CardMedia
               className={classes.media}
               image="../assets/chatting-club.jpg"
@@ -121,8 +128,8 @@ export function ClubJoin(props: ClubJoinProps) {
           </CardActions>
         </Card>
       </Grid>
-      <Grid item xs={4}>
-        <Card className={classes.root}>
+      <Grid item xs={4} className={classes.gridItem}>
+        <Card className={classes.card}>
           <CardActionArea>
             <CardMedia className={classes.media} image="../assets/spa-club.jpg" title="Spa Club" />
             <CardContent>
