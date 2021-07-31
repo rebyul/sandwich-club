@@ -23,13 +23,6 @@
     }
   },
   "projects": {
-    "sandwich-club": {
-      "tags": []
-    },
-    "sandwich-club-e2e": {
-      "tags": [],
-      "implicitDependencies": ["sandwich-club"]
-    },
     "api": {
       "tags": []
     },
@@ -44,6 +37,21 @@
     },
     "account": {
       "tags": []
+    },
+    "sandwich-club": {
+      "tags": []
+    },
+    "sandwich-club-e2e": {
+      "tags": [],
+      "implicitDependencies": ["sandwich-club"]
     }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
   }
 }
