@@ -1,25 +1,51 @@
 {
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
-  "affected": { "defaultBase": "master" },
+  "affected": {
+    "defaultBase": "master"
+  },
   "npmScope": "sandwich-club",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
     }
   },
   "projects": {
-    "sandwich-club": { "tags": [] },
-    "sandwich-club-e2e": { "tags": [], "implicitDependencies": ["sandwich-club"] },
-    "api": { "tags": [] },
-    "finances": { "tags": [] },
-    "membership": { "tags": [] }
+    "api": {
+      "tags": []
+    },
+    "finances": {
+      "tags": []
+    },
+    "membership": {
+      "tags": []
+    },
+    "sandwich-club": {
+      "tags": []
+    },
+    "sandwich-club-e2e": {
+      "tags": [],
+      "implicitDependencies": ["sandwich-club"]
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
   }
 }
