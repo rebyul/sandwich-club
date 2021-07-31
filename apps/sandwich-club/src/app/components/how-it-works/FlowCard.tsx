@@ -1,11 +1,5 @@
 import React, { FC } from 'react';
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  makeStyles,
-  Typography,
-} from '@material-ui/core';
+import { Card, CardContent, CardMedia, makeStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,7 +30,9 @@ export const FlowCard: FC<Props> = ({ imgUrl, title, subtitle }) => {
       <Card className={classes.root}>
         <CardMedia image={imgUrl} className={classes.media}></CardMedia>
         <CardContent>
-          <Typography className={classes.content} variant="h5" display="block">{title}</Typography>
+          <Typography className={classes.content} variant="h5" display="block">
+            {title}
+          </Typography>
           <Typography className={classes.content} variant="subtitle2" display="block">
             {subtitle}
           </Typography>
