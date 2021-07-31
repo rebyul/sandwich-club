@@ -28,9 +28,7 @@ const useStyles = makeStyles({
   },
 });
 
-export interface ClubJoinProps {}
-
-export function ClubJoin(props: ClubJoinProps) {
+export function ClubJoin() {
   const classes = useStyles();
 
   return (
@@ -59,10 +57,8 @@ export function ClubJoin(props: ClubJoinProps) {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small" color="primary">
-              <Link to="/sandwich-club" {...props}>
-                Join
-              </Link>
+            <Button size="small" color="primary" to="/sandwich-club" component={Link}>
+              Join
             </Button>
             <Button size="small" color="primary">
               Learn More
@@ -85,10 +81,6 @@ export function ClubJoin(props: ClubJoinProps) {
               <Typography variant="body2" color="textSecondary" component="p">
                 Not associated with the pizza club chain but argueably better pizzas are produced
                 here.
-                {/* <br />
-                <br />
-                <br />
-                <br /> */}
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -113,11 +105,6 @@ export function ClubJoin(props: ClubJoinProps) {
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 A club for people who don't eat
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -138,10 +125,6 @@ export function ClubJoin(props: ClubJoinProps) {
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 Not advertiser friendly, created to give a place for non PG speakers
-                <br />
-                <br />
-                <br />
-                <br />
               </Typography>
             </CardContent>
           </CardActionArea>
