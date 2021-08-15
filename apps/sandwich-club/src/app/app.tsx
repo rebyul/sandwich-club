@@ -1,4 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import { useEffect, useState } from 'react';
+import { NavigationBar } from './components/nav/NavigationBar';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import HomePage from './pages/home.page';
+import { lunchBunchTheme } from '../theme';
+import ClubJoinPage from './pages/club-join.page';
+import SandwichClubPage from './pages/sandwich-club.page';
 
 export const App = () => {
   const [m, setMessage] = useState({ message: '' });
@@ -10,17 +17,23 @@ export const App = () => {
   }, []);
 
   return (
-    <>
-      <div style={{ textAlign: 'center' }}>
-        <h1>Welcome to sandwich-club!</h1>
-        <img
-          width="450"
-          src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-          alt="nx-logo"
-        />
-      </div>
-      <div>{m.message}</div>
-    </>
+    <BrowserRouter>
+      <CssBaseline />
+      <ThemeProvider theme={lunchBunchTheme}>
+        <NavigationBar />
+        <Switch>
+          <Route path="/my-account">
+            <ClubJoinPage />
+          </Route>
+          <Route path="/sandwich-club">
+            <SandwichClubPage />
+          </Route>
+          <Route path="/">
+            <HomePage />
+          </Route>
+        </Switch>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 };
 

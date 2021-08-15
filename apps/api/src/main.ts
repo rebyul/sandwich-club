@@ -1,12 +1,10 @@
 import * as express from 'express';
+import apiRoutes from './app/routes/api';
 
 const app = express();
+app.use(express.json());
 
-const greeting = { message: 'Welcome to api!' };
-
-app.get('/api', (req, res) => {
-  res.send(greeting);
-});
+app.use('/api', apiRoutes);
 
 const port = process.env.port || 3001;
 const server = app.listen(port, () => {

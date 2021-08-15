@@ -32,6 +32,12 @@
     "membership": {
       "tags": []
     },
+    "auth": {
+      "tags": []
+    },
+    "account": {
+      "tags": []
+    },
     "sandwich-club": {
       "tags": []
     },
