@@ -91,19 +91,19 @@
             "lintFilePatterns": ["libs/database/models/**/*.ts"]
           }
         },
-        "migrate": {
+        "create": {
           "builder": "@nrwl/workspace:run-commands",
           "outputs": [],
           "options": {
-            "command": "npx prisma migrate dev --name init",
+            "command": "npx prisma migrate dev --create-only",
             "cwd": "libs/database/models"
           }
         },
-        "reset": {
+        "dev": {
           "builder": "@nrwl/workspace:run-commands",
           "outputs": [],
           "options": {
-            "command": "npx prisma migrate reset",
+            "command": "npx prisma migrate dev",
             "cwd": "libs/database/models"
           }
         },

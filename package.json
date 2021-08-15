@@ -25,7 +25,8 @@
     "watch:affected:test": "nx affected:test --all --watchAll",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "migrate": "nx run database-models:migrate",
+    "migrate:create": "nx run database-models:create",
+    "migrate:deploy": "nx run database-models:deploy",
     "help": "nx help"
   },
   "private": true,
