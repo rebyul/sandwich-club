@@ -80,6 +80,43 @@
         }
       }
     },
+    "database-models": {
+      "root": "libs/database/models",
+      "sourceRoot": "libs/database/models/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/database/models/**/*.ts"]
+          }
+        },
+        "migrate": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "npx prisma migrate dev --name init",
+            "cwd": "libs/database/models"
+          }
+        },
+        "reset": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "npx prisma migrate reset",
+            "cwd": "libs/database/models"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "npx prisma migrate deploy",
+            "cwd": "libs/database/models"
+          }
+        }
+      }
+    },
     "finances": {
       "root": "libs/finances",
       "sourceRoot": "libs/finances/src",

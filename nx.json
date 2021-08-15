@@ -26,6 +26,9 @@
     "api": {
       "tags": []
     },
+    "database-models": {
+      "tags": []
+    },
     "finances": {
       "tags": []
     },

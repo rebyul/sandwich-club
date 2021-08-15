@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@dbmodels": ["libs/database/models/src/index.ts"],
       "@swc/finances": ["libs/finances/src/index.ts"],
       "@swc/membership": ["libs/membership/src/index.ts"]
     }
