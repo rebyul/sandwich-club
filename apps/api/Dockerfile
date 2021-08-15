@@ -4,7 +4,7 @@ ARG BUILD_FLAG
 WORKDIR /source
 RUN npx nx build api ${BUILD_FLAG}
 
-FROM node:lts-alpine
+FROM node:current
 
 WORKDIR /app
 COPY --from=builder /source/dist/apps/api ./api

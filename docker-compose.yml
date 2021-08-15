@@ -11,7 +11,7 @@ services:
       context: ./
       cache_from:
         - npm-base:nx-base
-        - node:lts-alpine
+        - node:current
       dockerfile: ./apps/api/Dockerfile
       args:
         NODE_ENV: 'development'
@@ -37,10 +37,10 @@ services:
         BUILD_FLAG: ''
     image: react-app:nx-dev
     ports:
-      - 4900:80
+      - 4900:4900
     environment:
       NODE_ENV: 'production'
-      port: 80
+      port: 4900
     networks:
       - cheese-layer
     restart: on-failure
