@@ -135,6 +135,30 @@
             "jestConfig": "libs/finances/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "create": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "npx prisma migrate dev --create-only",
+            "cwd": "libs/finances"
+          }
+        },
+        "dev": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "npx prisma migrate dev",
+            "cwd": "libs/finances"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "npx prisma migrate deploy",
+            "cwd": "libs/finances"
+          }
         }
       }
     },
@@ -166,6 +190,30 @@
           "options": {
             "jestConfig": "libs/membership/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "create": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "npx prisma migrate dev --create-only",
+            "cwd": "libs/membership"
+          }
+        },
+        "dev": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "npx prisma migrate dev",
+            "cwd": "libs/membership"
+          }
+        },
+        "deploy": {
+          "builder": "@nrwl/workspace:run-commands",
+          "outputs": [],
+          "options": {
+            "command": "npx prisma migrate deploy",
+            "cwd": "libs/membership"
           }
         }
       }

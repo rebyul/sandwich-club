@@ -6,7 +6,11 @@ const newInvoiceLineDescription = (value?: string) =>
   value || `Line description ${Math.random() * 100}`;
 const newInvoiceLine = (
   values: InvoiceLineProps = { id: newInvoiceLineId(), description: newInvoiceLineDescription() }
-) => new InvoiceLine({ ...values });
+) =>
+  new InvoiceLine(
+    values.id || newInvoiceLineId(),
+    values.description || newInvoiceLineDescription()
+  );
 
 describe('newInvoiceLineId returns unique uuid', () => {
   const newId1 = newInvoiceLineId();

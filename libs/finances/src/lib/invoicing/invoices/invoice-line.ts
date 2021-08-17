@@ -10,12 +10,10 @@ export type InvoiceLineProps = {
 // interface InvoiceLine extends InvoiceLineSchema {}
 
 class InvoiceLine {
-  public id: string;
-  public description: string;
+  // public id: string;
+  // public description: string;
 
-  constructor(values: InvoiceLineProps) {
-    Object.assign(this, values);
-  }
+  constructor(public readonly id: string, public readonly description: string) {}
 
   equals(other: unknown): boolean {
     if (other instanceof InvoiceLine) {

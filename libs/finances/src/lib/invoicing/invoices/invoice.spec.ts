@@ -18,10 +18,7 @@ describe('invoice', () => {
   });
 
   it('create new invoice with lines', () => {
-    const testInvoiceLine = new InvoiceLine({
-      id: newInvoiceLineId(),
-      description: newInvoiceLineDescription(),
-    });
+    const testInvoiceLine = new InvoiceLine(newInvoiceLineId(), newInvoiceLineDescription());
     const testInvoice = new Invoice(testId, testOwnerId, [testInvoiceLine]);
 
     expect(testInvoice.invoiceLines.count()).toBe(1);
@@ -30,10 +27,7 @@ describe('invoice', () => {
 
   it('add single invoice line', () => {
     const testInvoice = new Invoice(testId, testOwnerId);
-    const testInvoiceLine = new InvoiceLine({
-      id: newInvoiceLineId(),
-      description: newInvoiceLineDescription(),
-    });
+    const testInvoiceLine = new InvoiceLine(newInvoiceLineId(), newInvoiceLineDescription());
     testInvoice.addInvoiceLine(testInvoiceLine);
 
     expect(testInvoice.invoiceLines.findIndex((l) => l.equals(testInvoiceLine))).toBeGreaterThan(
@@ -44,14 +38,8 @@ describe('invoice', () => {
 
   it('add multiple invoice lines', () => {
     const testInvoice = new Invoice(testId, testOwnerId);
-    const testInvoiceLine1 = new InvoiceLine({
-      id: newInvoiceLineId(),
-      description: newInvoiceLineDescription(),
-    });
-    const testInvoiceLine2 = new InvoiceLine({
-      id: newInvoiceLineId(),
-      description: newInvoiceLineDescription(),
-    });
+    const testInvoiceLine1 = new InvoiceLine(newInvoiceLineId(), newInvoiceLineDescription());
+    const testInvoiceLine2 = new InvoiceLine(newInvoiceLineId(), newInvoiceLineDescription());
     testInvoice.addInvoiceLines([testInvoiceLine1, testInvoiceLine2]);
 
     expect(testInvoice.invoiceLines.findIndex((l) => l.equals(testInvoiceLine1))).toBeGreaterThan(
