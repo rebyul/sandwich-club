@@ -16,26 +16,27 @@
   "npmScope": "sandwich-club",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "ZTkxMzQ4YzgtMTkzOC00Nzg2LWJhY2EtODMxNThiMTAwNjY0fHJlYWQtd3JpdGU="
       }
     }
   },
   "projects": {
+    "account": {
+      "tags": []
+    },
     "api": {
+      "tags": []
+    },
+    "auth": {
       "tags": []
     },
     "finances": {
       "tags": []
     },
     "membership": {
-      "tags": []
-    },
-    "auth": {
-      "tags": []
-    },
-    "account": {
       "tags": []
     },
     "sandwich-club": {

@@ -15,10 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@swc/finances": ["libs/finances/src/index.ts"],
-      "@swc/membership": ["libs/membership/src/index.ts"],
+      "@sandwich-club/account": ["libs/account/src/index.ts"],
       "@sandwich-club/auth": ["libs/auth/src/index.ts"],
-      "@sandwich-club/account": ["libs/account/src/index.ts"]
+      "@swc/finances": ["libs/finances/src/index.ts"],
+      "@swc/membership": ["libs/membership/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

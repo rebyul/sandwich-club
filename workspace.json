@@ -21,6 +21,27 @@
     }
   },
   "projects": {
+    "account": {
+      "root": "libs/account",
+      "sourceRoot": "libs/account/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/account/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/account"],
+          "options": {
+            "jestConfig": "libs/account/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "api": {
       "root": "apps/api",
       "sourceRoot": "apps/api/src",
@@ -76,6 +97,73 @@
           "options": {
             "jestConfig": "apps/api/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "auth": {
+      "root": "libs/auth",
+      "sourceRoot": "libs/auth/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/auth/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/auth"],
+          "options": {
+            "jestConfig": "libs/auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "finances": {
+      "root": "libs/finances",
+      "sourceRoot": "libs/finances/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/finances/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/finances"],
+          "options": {
+            "jestConfig": "libs/finances/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "membership": {
+      "root": "libs/membership",
+      "sourceRoot": "libs/membership/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+              "lintFilePatterns": ["apps/sandwich-club-e2e/**/*.{js,ts}"]
+            }
+          },
+          "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/libs/membership"],
+            "options": {
+              "jestConfig": "libs/membership/jest.config.js",
+              "passWithNoTests": true
+            }
           }
         }
       }
@@ -183,94 +271,6 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/sandwich-club-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
-    "finances": {
-      "root": "libs/finances",
-      "sourceRoot": "libs/finances/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/finances/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/finances"],
-          "options": {
-            "jestConfig": "libs/finances/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "membership": {
-      "root": "libs/membership",
-      "sourceRoot": "libs/membership/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
-          "lint": {
-            "executor": "@nrwl/linter:eslint",
-            "options": {
-              "lintFilePatterns": ["apps/sandwich-club-e2e/**/*.{js,ts}"]
-            }
-          },
-          "test": {
-            "executor": "@nrwl/jest:jest",
-            "outputs": ["coverage/libs/membership"],
-            "options": {
-              "jestConfig": "libs/membership/jest.config.js",
-              "passWithNoTests": true
-            }
-          }
-        }
-      }
-    },
-    "auth": {
-      "root": "libs/auth",
-      "sourceRoot": "libs/auth/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/auth/**/*.{ts,tsx,js,jsx}"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/auth"],
-          "options": {
-            "jestConfig": "libs/auth/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "account": {
-      "root": "libs/account",
-      "sourceRoot": "libs/account/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/account/**/*.{ts,tsx,js,jsx}"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/account"],
-          "options": {
-            "jestConfig": "libs/account/jest.config.js",
-            "passWithNoTests": true
           }
         }
       }
