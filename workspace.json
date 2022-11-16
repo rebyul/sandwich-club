@@ -1,25 +1,5 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
-  "defaultProject": "sandwich-club",
-  "generators": {
-    "@nrwl/react": {
-      "application": {
-        "style": "@emotion/styled",
-        "linter": "eslint",
-        "babel": true
-      },
-      "component": {
-        "style": "@emotion/styled"
-      },
-      "library": {
-        "style": "@emotion/styled",
-        "linter": "eslint"
-      }
-    }
-  },
   "projects": {
     "account": {
       "root": "libs/account",
@@ -30,17 +10,19 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/account/**/*.{ts,tsx,js,jsx}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/account"],
           "options": {
-            "jestConfig": "libs/account/jest.config.js",
+            "jestConfig": "libs/account/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "api": {
       "root": "apps/api",
@@ -49,14 +31,16 @@
       "prefix": "api",
       "targets": {
         "build": {
-          "executor": "@nrwl/node:build",
+          "executor": "@nrwl/webpack:webpack",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/api",
             "main": "apps/api/src/main.ts",
             "tsConfig": "apps/api/tsconfig.app.json",
             "assets": ["apps/api/src/assets"],
-            "generatePackageJson": true
+            "generatePackageJson": true,
+            "target": "node",
+            "compiler": "tsc"
           },
           "configurations": {
             "production": {
@@ -73,13 +57,13 @@
           }
         },
         "serve": {
-          "executor": "@nrwl/node:execute",
+          "executor": "@nrwl/node:node",
           "options": {
             "buildTarget": "api:build"
           }
         },
         "deploy": {
-          "executor": "@nrwl/workspace:run-commands",
+          "executor": "nx:run-commands",
           "options": {
             "commands": ["nx build api", "docker build -f ./apps/api/Dockerfile . -t api-server"],
             "parallel": false
@@ -89,17 +73,19 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/api/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/api"],
           "options": {
-            "jestConfig": "apps/api/jest.config.js",
+            "jestConfig": "apps/api/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "auth": {
       "root": "libs/auth",
@@ -110,17 +96,19 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/auth/**/*.{ts,tsx,js,jsx}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/auth"],
           "options": {
-            "jestConfig": "libs/auth/jest.config.js",
+            "jestConfig": "libs/auth/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "finances": {
       "root": "libs/finances",
@@ -131,17 +119,19 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["libs/finances/**/*.ts"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/libs/finances"],
           "options": {
-            "jestConfig": "libs/finances/jest.config.js",
+            "jestConfig": "libs/finances/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "membership": {
       "root": "libs/membership",
@@ -166,7 +156,8 @@
             }
           }
         }
-      }
+      },
+      "tags": []
     },
     "sandwich-club": {
       "root": "apps/sandwich-club",
@@ -174,7 +165,7 @@
       "projectType": "application",
       "targets": {
         "build": {
-          "executor": "@nrwl/web:build",
+          "executor": "@nrwl/webpack:webpack",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/sandwich-club",
@@ -212,7 +203,7 @@
           }
         },
         "deploy": {
-          "executor": "@nrwl/workspace:run-commands",
+          "executor": "nx:run-commands",
           "options": {
             "commands": [
               "nx build sandwich-club",
@@ -222,7 +213,7 @@
           }
         },
         "serve": {
-          "executor": "@nrwl/web:dev-server",
+          "executor": "@nrwl/webpack:dev-server",
           "options": {
             "buildTarget": "sandwich-club:build",
             "proxyConfig": "apps/sandwich-club/proxy.conf.json"
@@ -230,24 +221,30 @@
           "configurations": {
             "production": {
               "buildTarget": "sandwich-club:build:production"
+            },
+            "development": {
+              "buildTarget": "sandwich-club:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/sandwich-club/**/*.{ts,tsx,js,jsx}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/sandwich-club"],
           "options": {
-            "jestConfig": "apps/sandwich-club/jest.config.js",
+            "jestConfig": "apps/sandwich-club/jest.config.ts",
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "sandwich-club-e2e": {
       "root": "apps/sandwich-club-e2e",
@@ -271,9 +268,12 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/sandwich-club-e2e/**/*.{js,ts}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["sandwich-club"]
     }
   }
 }

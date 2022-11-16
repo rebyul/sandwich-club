@@ -1,40 +1,48 @@
-import { Box, Card, Container, Grid, makeStyles, Paper, Typography } from '@material-ui/core';
-import { Autocomplete } from '@material-ui/lab';
-import Rating from '@material-ui/lab/Rating';
-import React from 'react';
+import { Box, Card, Container, Grid, Typography, styled } from '@mui/material';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
+import Rating from '@mui/material/Rating';
+
+const PREFIX = 'ReviewGrid';
+const classes = {
+  paper: `${PREFIX}-paper`,
+  control: `${PREFIX}-control`,
+  reviewBody: `${PREFIX}-reviewBody`,
+  reviewerName: `${PREFIX}-reviewerName`,
+  rating: `${PREFIX}-rating`,
+  reviewCard: `${PREFIX}-reviewCard`,
+  container: `${PREFIX}-revieContainer`,
+};
+
+const ReviewGrid = styled(Grid)(({ theme }) => ({
+  // flexGrow: 1,
+  margin: '0',
+
+  [`& .${classes.paper}`]: {
     height: 200,
     width: 300,
   },
-  control: {
+  [`& .${classes.control}`]: {
     padding: theme.spacing(2),
   },
-  reviewBody: {
+  [`& .${classes.reviewBody}`]: {
     textAlign: 'center',
     fontSize: 25,
   },
-  reviewerName: {
+  [`& .${classes.reviewerName}`]: {
     textAlign: 'center',
     color: 'Gray',
     fontSize: 20,
   },
-  rating: {
+  [`& .${classes.rating}`]: {
     display: 'flex',
     margin: '0 auto',
     justifyContent: 'center',
   },
-  reviewCard: {
+  [`& .${classes.reviewCard}`]: {
     padding: theme.spacing(5),
     height: '100%',
   },
-  container: {
-    margin: '0',
-  },
+  [`& .${classes.container}`]: {},
 }));
 
 function Reviews() {
@@ -76,7 +84,7 @@ function Reviews() {
       </Box>
 
       <Container>
-        <Grid
+        <ReviewGrid
           container
           spacing={4}
           justifyContent="center"
@@ -99,7 +107,7 @@ function Reviews() {
               </Grid>
             );
           })}
-        </Grid>
+        </ReviewGrid>
       </Container>
     </>
   );

@@ -1,17 +1,29 @@
+import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 import React, { FC } from 'react';
-import { Card, CardContent, CardMedia, makeStyles, Typography } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+import { styled } from '@mui/material/styles';
+
+const PREFIX = 'FlowCard';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  media: `${PREFIX}-media`,
+  content: `${PREFIX}-content`,
+};
+
+const Root = styled('div')(({ theme }) => ({
+  [`& .${classes.root}`]: {
     minWidth: 295,
     Height: 0,
     border: 'none',
     boxShadow: 'none',
   },
-  media: {
+
+  [`& .${classes.media}`]: {
     paddingTop: '56.25%', // 16:9
   },
-  content: {
+
+  [`& .${classes.content}`]: {
     marginBottom: '8px',
     textAlign: 'center',
   },
@@ -24,9 +36,8 @@ type Props = {
 };
 
 export const FlowCard: FC<Props> = ({ imgUrl, title, subtitle }) => {
-  const classes = useStyles();
   return (
-    <div>
+    <Root>
       <Card className={classes.root}>
         <CardMedia image={imgUrl} className={classes.media}></CardMedia>
         <CardContent>
@@ -38,6 +49,6 @@ export const FlowCard: FC<Props> = ({ imgUrl, title, subtitle }) => {
           </Typography>
         </CardContent>
       </Card>
-    </div>
+    </Root>
   );
 };

@@ -1,4 +1,4 @@
-import createPalette from '@material-ui/core/styles/createPalette';
+import { createPalette } from '@mui/material/styles';
 
 const lunchbunchYellowPalette = {
   50: '#fffbee',

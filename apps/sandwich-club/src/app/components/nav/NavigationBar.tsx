@@ -1,33 +1,43 @@
-import { makeStyles } from '@material-ui/core';
-import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
+import { Button, AppBar as MuiAppBar, Toolbar, Typography, styled } from '@mui/material';
+
+import { Link } from 'react-router-dom';
 import { LoginModal } from '@sandwich-club/auth';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
+const PREFIX = 'AppBar';
+
+const classes = {
+  menuButton: `${PREFIX}-menuButton`,
+  title: `${PREFIX}-title`,
+  homeLink: `${PREFIX}-homeLink`,
+  homeLinkIcon: `${PREFIX}-homeLinkIcon`,
+  appbar: `${PREFIX}-appBar`,
+};
+
+const AppBar = styled(MuiAppBar)(({ theme }) => ({
+  boxShadow: 'none',
+  flexGrow: 1,
+
+  [`& . ${classes.menuButton}`]: {
     marginRight: theme.spacing(2),
   },
-  title: {
+  [`& .${classes.menuButton}`]: {
+    marginRight: theme.spacing(2),
+  },
+  [`& .${classes.title}`]: {
     flexGrow: 1,
   },
-  homeLink: {
+  [`& .${classes.homeLink}`]: {
     color: theme.palette.common.white,
     textDecoration: 'none',
   },
-  homeLinkIcon: {
+  [`& .${classes.homeLinkIcon}`]: {
     height: '2rem',
   },
-  appbar: {
-    boxShadow: 'none',
-  },
+  [`& .${classes.appbar}`]: {},
 }));
 
 function NavigationBar() {
-  const classes = useStyles();
   const [modalIsOpen, setIsLoginOpen] = useState(false);
   const [userLoggedIn, setUserLoggedIn] = useState(false);
 

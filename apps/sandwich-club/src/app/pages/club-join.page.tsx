@@ -1,4 +1,4 @@
-import { Box, Container } from '@material-ui/core';
+import { Box, Container } from '@mui/material';
 import { ClubJoin } from '@sandwich-club/account';
 import React from 'react';
 

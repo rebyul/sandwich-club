@@ -19,32 +19,9 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "ZTkxMzQ4YzgtMTkzOC00Nzg2LWJhY2EtODMxNThiMTAwNjY0fHJlYWQtd3JpdGU="
+        "accessToken": "ZTkxMzQ4YzgtMTkzOC00Nzg2LWJhY2EtODMxNThiMTAwNjY0fHJlYWQtd3JpdGU=",
+        "parallel": 1
       }
-    }
-  },
-  "projects": {
-    "account": {
-      "tags": []
-    },
-    "api": {
-      "tags": []
-    },
-    "auth": {
-      "tags": []
-    },
-    "finances": {
-      "tags": []
-    },
-    "membership": {
-      "tags": []
-    },
-    "sandwich-club": {
-      "tags": []
-    },
-    "sandwich-club-e2e": {
-      "tags": [],
-      "implicitDependencies": ["sandwich-club"]
     }
   },
   "targetDependencies": {
@@ -54,5 +31,36 @@
         "projects": "dependencies"
       }
     ]
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "@emotion/styled",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "@emotion/styled"
+      },
+      "library": {
+        "style": "@emotion/styled",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "sandwich-club",
+  "targetDefaults": {
+    "e2e": {
+      "inputs": ["default", "^default"]
+    },
+    "test": {
+      "inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"]
+    },
+    "lint": {
+      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
+    }
   }
 }

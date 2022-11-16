@@ -1,20 +1,31 @@
-import Grid from '@material-ui/core/Grid';
+import Grid from '@mui/material/Grid';
+import { styled } from '@mui/material/styles';
 import React, { FC } from 'react';
-import { makeStyles, Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { FlowCard } from './FlowCard';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const PREFIX = 'Flows';
+
+const classes = {
+  root: `${PREFIX}-root`
+};
+
+const StyledGrid = styled(Grid)((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.root}`]: {
     maxWidth: '80vw',
     margin: 'auto',
     marginTop: '16px',
-  },
+  }
 }));
 
 export const Flows: FC = () => {
-  const classes = useStyles();
+
   return (
-    <Grid
+    <StyledGrid
       className={classes.root}
       container
       direction="column"
@@ -60,6 +71,6 @@ export const Flows: FC = () => {
           ></FlowCard>
         </Grid>
       </Grid>
-    </Grid>
+    </StyledGrid>
   );
 };
