@@ -46,8 +46,6 @@ const ReviewGrid = styled(Grid)(({ theme }) => ({
 }));
 
 function Reviews() {
-  const classes = useStyles();
-
   const reviewData: {
     body: string;
     name: string;
