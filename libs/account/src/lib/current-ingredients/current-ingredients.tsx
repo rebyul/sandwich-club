@@ -1,55 +1,72 @@
-import React, { useState } from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import IconButton from '@material-ui/core/IconButton';
-import InfoIcon from '@material-ui/icons/Info';
-import { Avatar, Grid, Paper, Fade, Typography, Button } from '@material-ui/core';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import { Avatar, Button, Fade, Grid, Paper, Typography } from '@mui/material';
+
+import IconButton from '@mui/material/IconButton';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import InfoIcon from '@mui/icons-material/Info';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import ListItemText from '@mui/material/ListItemText';
+import ListSubheader from '@mui/material/ListSubheader';
+import { styled } from '@mui/material/styles';
+import { useState } from 'react';
+
+const PREFIX = 'CurrentIngredients';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  gridList: `${PREFIX}-gridList`,
+  gridListItem: `${PREFIX}-gridListItem`,
+  icon: `${PREFIX}-icon`,
+  paper: `${PREFIX}-paper`,
+  title: `${PREFIX}-title`,
+  titleBar: `${PREFIX}-titleBar`,
+};
+
+const StyledGrid = styled(Grid)(({ theme }) => ({
+  [`& .${classes.root}`]: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
+  },
+
+  [`& .${classes.gridList}`]: {
+    width: 800,
+    height: 450,
+  },
+
+  [`& .${classes.gridListItem}`]: {
+    borderRadius: 25,
+  },
+
+  [`& .${classes.icon}`]: {
+    color: 'rgba(255, 255, 255, 0.54)',
+  },
+
+  [`& .${classes.paper}`]: {
+    height: '100%',
+    padding: theme.spacing(1),
+  },
+
+  [`& .${classes.title}`]: {
+    color: 'white',
+  },
+
+  [`& .${classes.titleBar}`]: {
+    background:
+      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+  },
+}));
 
 export interface CurrentIngredientsProps {
   date: number;
 }
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'space-around',
-      overflow: 'hidden',
-      backgroundColor: theme.palette.background.paper,
-    },
-    gridList: {
-      width: 800,
-      height: 450,
-    },
-    gridListItem: {
-      borderRadius: 25,
-    },
-    icon: {
-      color: 'rgba(255, 255, 255, 0.54)',
-    },
-    paper: {
-      margin: theme.spacing(1),
-    },
-    title: {
-      color: 'white',
-    },
-    titleBar: {
-      background:
-        'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-      borderBottomLeftRadius: 20,
-      borderBottomRightRadius: 20,
-    },
-  })
-);
 
 const tileData = [
   {
@@ -76,7 +93,6 @@ const tileData = [
 
 export function CurrentIngredients(props: CurrentIngredientsProps) {
   const { date } = props;
-  const classes = useStyles();
 
   const [users, setUsers] = useState([
     {
@@ -103,24 +119,24 @@ export function CurrentIngredients(props: CurrentIngredientsProps) {
   const [costs, setCosts] = useState(18.73);
 
   return (
-    <Grid container spacing={3} style={{ marginBottom: '64px' }}>
+    <StyledGrid container spacing={3} style={{ marginBottom: '64px' }}>
       <Grid item xs={3}></Grid>
       <Grid item xs={6}>
         <div className={classes.root}>
-          <GridList cellHeight={180} className={classes.gridList} cols={3}>
-            <GridListTile key="Subheader" cols={3} style={{ height: 'auto' }}>
+          <ImageList rowHeight={180} className={classes.gridList} cols={3}>
+            <ImageListItem key="Subheader" cols={3} style={{ height: 'auto' }}>
               <ListSubheader component="div">Week {date + 1}</ListSubheader>
-            </GridListTile>
+            </ImageListItem>
             {tileData.map((tile) => (
-              <GridListTile key={tile.img} cols={1} className={classes.gridListItem}>
+              <ImageListItem key={tile.img} cols={1} className={classes.gridListItem}>
                 <Fade timeout={Math.random() * (1000 - 100) + 100} in={true}>
                   <Paper elevation={0} className={classes.paper}>
                     <img
                       src={tile.img}
                       alt={tile.title}
-                      style={{ width: '100%', height: '100%', left: '25%' }}
+                      style={{ width: '100%', height: '100%', left: '25%', objectFit: 'contain' }}
                     />
-                    <GridListTileBar
+                    <ImageListItemBar
                       title={tile.title}
                       subtitle={<span>{tile.cost}</span>}
                       classes={{
@@ -131,6 +147,7 @@ export function CurrentIngredients(props: CurrentIngredientsProps) {
                         <IconButton
                           aria-label={`info about ${tile.title}`}
                           className={classes.icon}
+                          size="large"
                         >
                           <InfoIcon />
                         </IconButton>
@@ -138,9 +155,9 @@ export function CurrentIngredients(props: CurrentIngredientsProps) {
                     />
                   </Paper>
                 </Fade>
-              </GridListTile>
+              </ImageListItem>
             ))}
-          </GridList>
+          </ImageList>
         </div>
       </Grid>
       <Grid item xs={3}>
@@ -181,7 +198,7 @@ export function CurrentIngredients(props: CurrentIngredientsProps) {
           {`$${(costs / users.length).toFixed(2)}`}
         </Typography>
       </Grid>
-    </Grid>
+    </StyledGrid>
   );
 }
 

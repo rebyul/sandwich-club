@@ -1,55 +1,72 @@
+import { Fade, Grid, Paper, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import IconButton from '@material-ui/core/IconButton';
-import InfoIcon from '@material-ui/icons/Info';
-import { Grid, Paper, Fade, Typography } from '@material-ui/core';
-import { PlusOneOutlined } from '@material-ui/icons';
-import LockIcon from '@material-ui/icons/Lock';
+
+import IconButton from '@mui/material/IconButton';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import InfoIcon from '@mui/icons-material/Info';
+import ListSubheader from '@mui/material/ListSubheader';
+import LockIcon from '@mui/icons-material/Lock';
+import { PlusOneOutlined } from '@mui/icons-material';
+import { Theme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
+
+const PREFIX = 'RequestIngredients';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  gridList: `${PREFIX}-gridList`,
+  gridListItem: `${PREFIX}-gridListItem`,
+  icon: `${PREFIX}-icon`,
+  paper: `${PREFIX}-paper`,
+  title: `${PREFIX}-title`,
+  titleBar: `${PREFIX}-titleBar`,
+};
+
+const StyledGrid = styled(Grid)(({ theme }) => ({
+  [`& .${classes.root}`]: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
+  },
+
+  [`& .${classes.gridList}`]: {
+    width: '80%',
+    height: 450,
+  },
+
+  [`& .${classes.gridListItem}`]: {},
+
+  [`& .${classes.icon}`]: {
+    color: 'rgba(255, 255, 255, 0.54)',
+  },
+
+  [`& .${classes.paper}`]: {
+    margin: theme.spacing(1),
+    borderRadius: 25,
+  },
+
+  [`& .${classes.title}`]: {
+    color: 'white',
+  },
+
+  [`& .${classes.titleBar}`]: {
+    background:
+      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+  },
+}));
 
 export interface RequestIngredientsProps {
   date: number;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'space-around',
-      overflow: 'hidden',
-      backgroundColor: theme.palette.background.paper,
-    },
-    gridList: {
-      width: '80%',
-      height: 450,
-    },
-    gridListItem: {},
-    icon: {
-      color: 'rgba(255, 255, 255, 0.54)',
-    },
-    paper: {
-      margin: theme.spacing(1),
-      borderRadius: 25,
-    },
-    title: {
-      color: 'white',
-    },
-    titleBar: {
-      background:
-        'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
-      borderBottomLeftRadius: 20,
-      borderBottomRightRadius: 20,
-    },
-  })
-);
-
 export function RequestIngredients(props: RequestIngredientsProps) {
   const { date } = props;
-  const classes = useStyles();
 
   const [ingredients, setIngredients] = useState([]);
 
@@ -63,7 +80,13 @@ export function RequestIngredients(props: RequestIngredientsProps) {
 
   if (date === 0 || !ingredients) {
     return (
-      <Grid container spacing={1} direction="column" justifyContent="center" alignItems="center">
+      <StyledGrid
+        container
+        spacing={1}
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+      >
         <Grid item xs={12}>
           <Typography variant="h3" gutterBottom>
             Request Ingredients
@@ -72,7 +95,7 @@ export function RequestIngredients(props: RequestIngredientsProps) {
             Locked <LockIcon />
           </Typography>
         </Grid>
-      </Grid>
+      </StyledGrid>
     );
   }
 
@@ -85,9 +108,9 @@ export function RequestIngredients(props: RequestIngredientsProps) {
       </Grid>
       <Grid item xs={12}>
         <div className={classes.root}>
-          <GridList cellHeight={180} className={classes.gridList} cols={5}>
+          <ImageList rowHeight={180} className={classes.gridList} cols={5}>
             {ingredients.map((tile) => (
-              <GridListTile key={tile.id} cols={1} className={classes.gridListItem}>
+              <ImageListItem key={tile.id} cols={1} className={classes.gridListItem}>
                 <Fade timeout={Math.random() * (1000 - 100) + 100} in={true}>
                   <Paper elevation={0} className={classes.paper}>
                     {tile.img && (
@@ -98,7 +121,7 @@ export function RequestIngredients(props: RequestIngredientsProps) {
                       />
                     )}
 
-                    <GridListTileBar
+                    <ImageListItemBar
                       title={tile.name}
                       subtitle={<span>${tile.pricePerUnit}</span>}
                       classes={{
@@ -109,6 +132,7 @@ export function RequestIngredients(props: RequestIngredientsProps) {
                         <IconButton
                           aria-label={`Request Ingredient ${tile.name}`}
                           className={classes.icon}
+                          size="large"
                         >
                           <PlusOneOutlined />
                         </IconButton>
@@ -116,9 +140,9 @@ export function RequestIngredients(props: RequestIngredientsProps) {
                     />
                   </Paper>
                 </Fade>
-              </GridListTile>
+              </ImageListItem>
             ))}
-          </GridList>
+          </ImageList>
         </div>
       </Grid>
     </Grid>

@@ -1,23 +1,20 @@
 import { Button, Container, Grid, Paper, Typography } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import React, { FC } from 'react';
-import clsx from 'clsx';
+import React, { FC, PropsWithChildren } from 'react';
+
 import { Flows } from '../components/how-it-works/Flows';
 import { Reviews } from '../components/reviewSection/Reviews';
+import clsx from 'clsx';
+import { styled } from '@mui/material/styles';
 
 const PREFIX = 'HomePage';
 
 const classes = {
   gridPaper: `${PREFIX}-gridPaper`,
-  hackBottomMargin: `${PREFIX}-hackBottomMargin`
+  hackBottomMargin: `${PREFIX}-hackBottomMargin`,
 };
 
 // TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
-const Root = styled('div')((
-  {
-    theme
-  }
-) => ({
+const Root = styled('div')(({ theme }) => ({
   [`& .${classes.gridPaper}`]: {
     backgroundSize: '35px 35px',
     backgroundImage: `linear-gradient(to right, #C0C0C0 1px, transparent 1px), linear-gradient(to bottom, #C0C0C0 1px, ${theme.palette.secondary.main} 1px)`,
@@ -25,10 +22,10 @@ const Root = styled('div')((
 
   [`& .${classes.hackBottomMargin}`]: {
     paddingBottom: '70px',
-  }
+  },
 }));
 
-const HomePageHero: FC<{ className?: string }> = ({ className, children }) => (
+const HomePageHero: FC<PropsWithChildren<{ className: string }>> = ({ className, children }) => (
   <Grid
     container
     direction="column"
@@ -41,10 +38,8 @@ const HomePageHero: FC<{ className?: string }> = ({ className, children }) => (
 );
 
 function HomePage() {
-
-
   return (
-    (<Root>
+    <Root>
       <HomePageHero className={clsx(classes.gridPaper, classes.hackBottomMargin)}>
         <img src="/assets/LunchBunch.png" height="auto" alt="premium-lunch-bunch" />
         <Button size="large" variant="contained" color="primary">
@@ -53,7 +48,7 @@ function HomePage() {
       </HomePageHero>
       <Flows />
       <Reviews />
-    </Root>)
+    </Root>
   );
 }
 

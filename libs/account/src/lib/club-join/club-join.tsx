@@ -1,38 +1,47 @@
 import React from 'react';
+import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { Grid } from '@material-ui/core';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import { Grid } from '@mui/material';
 
-const useStyles = makeStyles({
-  card: {
+const PREFIX = 'ClubJoin';
+
+const classes = {
+  card: `${PREFIX}-card`,
+  gridItem: `${PREFIX}-gridItem`,
+  cardActionArea: `${PREFIX}-cardActionArea`,
+  media: `${PREFIX}-media`
+};
+
+const StyledGrid = styled(Grid)({
+  [`& .${classes.card}`]: {
     maxWidth: 345,
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
   },
-  gridItem: {
+  [`& .${classes.gridItem}`]: {
     alignSelf: 'stretch',
   },
-  cardActionArea: {
+  [`& .${classes.cardActionArea}`]: {
     marginBottom: 'auto',
   },
-  media: {
+  [`& .${classes.media}`]: {
     height: 140,
   },
 });
 
 export function ClubJoin() {
-  const classes = useStyles();
+
 
   return (
-    <Grid container spacing={3} direction="row" justifyContent="flex-start" alignItems="flex-start">
+    <StyledGrid container spacing={3} direction="row" justifyContent="flex-start" alignItems="flex-start">
       <Grid item xs={4} className={classes.gridItem}>
         <Card className={classes.card}>
           <CardActionArea className={classes.cardActionArea}>
@@ -135,7 +144,7 @@ export function ClubJoin() {
           </CardActions>
         </Card>
       </Grid>
-    </Grid>
+    </StyledGrid>
   );
 }
 

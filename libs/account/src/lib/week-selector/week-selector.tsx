@@ -1,13 +1,36 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Box from '@material-ui/core/Box';
-import { CalendarToday, CalendarTodayOutlined, CalendarViewDay } from '@material-ui/icons';
+import { CalendarToday, CalendarTodayOutlined, CalendarViewDay } from '@mui/icons-material';
+
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
 import CurrentIngredients from '../current-ingredients/current-ingredients';
+import PropTypes from 'prop-types';
+import React from 'react';
 import RequestIngredients from '../request-ingredients/request-ingredients';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import { styled } from '@mui/material/styles';
+
+const PREFIX = 'WeekSelector';
+
+const classes = {
+  root: `${PREFIX}-root`,
+  appbar: `${PREFIX}-appbar`,
+};
+
+const Root = styled('div')(({ theme }) => ({
+  [`& .${classes.root}`]: {
+    flexGrow: 1,
+
+    backgroundColor: theme.palette.background.paper,
+  },
+
+  [`& .${classes.appbar}`]: {
+    boxShadow: 'none',
+    backgroundColor: 'transparent',
+    width: '500px',
+    margin: '0 auto',
+  },
+}));
 
 /* eslint-disable-next-line */
 TabPanel.propTypes = {
@@ -23,25 +46,11 @@ function a11yProps(index) {
   };
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-
-    backgroundColor: theme.palette.background.paper,
-  },
-  appbar: {
-    boxShadow: 'none',
-    backgroundColor: 'transparent',
-    width: '500px',
-    margin: '0 auto',
-  },
-}));
-
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
-    <div
+    <Root
       role="tabpanel"
       hidden={value !== index}
       id={`scrollable-force-tabpanel-${index}`}
@@ -49,12 +58,11 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && <Box p={3}>{children}</Box>}
-    </div>
+    </Root>
   );
 }
 
 export function WeekSelector() {
-  const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -68,10 +76,11 @@ export function WeekSelector() {
           value={value}
           onChange={handleChange}
           variant="scrollable"
-          scrollButtons="on"
+          scrollButtons
           indicatorColor="primary"
           textColor="primary"
           aria-label="scrollable force tabs example"
+          allowScrollButtonsMobile
         >
           <Tab label="31/5/2021" icon={<CalendarTodayOutlined />} {...a11yProps(0)} />
           <Tab label="7/6/2021" icon={<CalendarToday />} {...a11yProps(1)} />

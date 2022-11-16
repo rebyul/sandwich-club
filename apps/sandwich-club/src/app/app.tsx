@@ -1,18 +1,12 @@
-import { CssBaseline, ThemeProvider, Theme, StyledEngineProvider } from '@mui/material';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { CssBaseline, StyledEngineProvider, ThemeProvider } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { NavigationBar } from './components/nav/NavigationBar';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import HomePage from './pages/home.page';
-import { lunchBunchTheme } from '../theme';
+
 import ClubJoinPage from './pages/club-join.page';
+import HomePage from './pages/home.page';
+import { NavigationBar } from './components/nav/NavigationBar';
 import SandwichClubPage from './pages/sandwich-club.page';
-
-
-declare module '@mui/styles/defaultTheme' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
-}
-
+import { lunchBunchTheme } from '../theme';
 
 export const App = () => {
   const [m, setMessage] = useState({ message: '' });
@@ -29,17 +23,11 @@ export const App = () => {
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={lunchBunchTheme}>
           <NavigationBar />
-          <Switch>
-            <Route path="/my-account">
-              <ClubJoinPage />
-            </Route>
-            <Route path="/sandwich-club">
-              <SandwichClubPage />
-            </Route>
-            <Route path="/">
-              <HomePage />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/my-account" element={<ClubJoinPage />} />
+            <Route path="/sandwich-club" element={<SandwichClubPage />} />
+            <Route path="/" element={<HomePage />} />
+          </Routes>
         </ThemeProvider>
       </StyledEngineProvider>
     </BrowserRouter>

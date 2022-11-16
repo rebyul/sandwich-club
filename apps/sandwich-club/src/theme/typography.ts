@@ -1,4 +1,4 @@
-import { createTypography } from '@mui/material/styles';
+import createTypography from '@mui/material/styles/createTypography';
 import { lunchbunchPalette } from './colors';
 
 const lunchbunchTypography = createTypography(lunchbunchPalette, {

@@ -10,7 +10,7 @@ import {
   Button,
   Backdrop,
   Dialog,
-} from '@material-ui/core';
+} from '@mui/material';
 import { Link } from 'react-router-dom';
 
 /* eslint-disable-next-line */
