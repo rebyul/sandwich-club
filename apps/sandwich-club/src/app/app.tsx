@@ -9,7 +9,7 @@ import SandwichClubPage from './pages/sandwich-club.page';
 import { lunchBunchTheme } from '../theme';
 
 export const App = () => {
-  const [m, setMessage] = useState({ message: '' });
+  const [, setMessage] = useState({ message: '' });
 
   useEffect(() => {
     fetch('/api')

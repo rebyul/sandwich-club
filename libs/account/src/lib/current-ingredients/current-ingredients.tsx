@@ -112,11 +112,11 @@ export function CurrentIngredients(props: CurrentIngredientsProps) {
     },
     {
       value: 3,
-      name: '' + 'Anders',
+      name: 'Anders',
       image: '../assets/Anders.jpg',
     },
   ]);
-  const [costs, setCosts] = useState(18.73);
+  const [costs] = useState(18.73);
 
   return (
     <StyledGrid container spacing={3} style={{ marginBottom: '64px' }}>

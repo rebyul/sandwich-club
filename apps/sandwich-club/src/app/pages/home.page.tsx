@@ -1,4 +1,4 @@
-import { Button, Container, Grid, Paper, Typography } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import React, { FC, PropsWithChildren } from 'react';
 
 import { Flows } from '../components/how-it-works/Flows';

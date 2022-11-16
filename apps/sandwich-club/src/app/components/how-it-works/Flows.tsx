@@ -7,23 +7,18 @@ import { FlowCard } from './FlowCard';
 const PREFIX = 'Flows';
 
 const classes = {
-  root: `${PREFIX}-root`
+  root: `${PREFIX}-root`,
 };
 
-const StyledGrid = styled(Grid)((
-  {
-    theme
-  }
-) => ({
+const StyledGrid = styled(Grid)(({ theme }) => ({
   [`&.${classes.root}`]: {
     maxWidth: '80vw',
     margin: 'auto',
     marginTop: '16px',
-  }
+  },
 }));
 
 export const Flows: FC = () => {
-
   return (
     <StyledGrid
       className={classes.root}
