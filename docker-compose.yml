@@ -5,18 +5,18 @@ networks:
     driver: bridge
 
 services:
-  api-server:
-    container_name: api-server
+  sandwich-club-api:
+    container_name: sandwich-club-api
     build:
       context: ./
       cache_from:
-        - npm-base:nx-base
-        - node:current
+        - sandwich-club/nx-base
+        - nginx:1-alpine
       dockerfile: ./apps/api/Dockerfile
       args:
         NODE_ENV: 'development'
         BUILD_FLAG: ''
-    image: api-server:nx-dev
+    image: sandwich-club/api:nx-dev
     ports:
       - 4939:4939
     environment:
@@ -25,19 +25,20 @@ services:
     networks:
       - cheese-layer
     restart: on-failure
-  react-app:
-    container_name: react-client
+  sandwich-club-react:
+    container_name: sandwich-club-react
     build:
       context: ./
       cache_from:
-        - nginx:1-alpine
+        - sandwich-club/nx-base
+        - node:current
       dockerfile: ./apps/sandwich-club/Dockerfile
       args:
         NODE_ENV: 'production'
         BUILD_FLAG: ''
-    image: react-app:nx-dev
+    image: sandwich-club/react:nx-dev
     ports:
-      - 4900:4900
+      - 4900:80
     environment:
       NODE_ENV: 'production'
       port: 4900

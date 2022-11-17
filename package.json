@@ -26,7 +26,8 @@
     "watch:affected:test": "nx affected:test --all --watchAll",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "base": "docker build -f ./Dockerfile . -t sandwich-club/nx-base"
   },
   "private": true,
   "devDependencies": {
@@ -46,6 +47,7 @@
     "@nrwl/react": "15.1.0",
     "@nrwl/web": "15.1.0",
     "@nrwl/workspace": "15.1.0",
+    "@nx-tools/nx-container": "^4.0.0",
     "@testing-library/react": "13.4.0",
     "@types/express": "4.17.13",
     "@types/jest": "28.1.8",
