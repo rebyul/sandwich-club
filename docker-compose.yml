@@ -14,7 +14,7 @@ services:
         - nginx:1-alpine
       dockerfile: ./apps/api/Dockerfile
       args:
-        NODE_ENV: 'development'
+        NODE_ENV: 'production'
         BUILD_FLAG: ''
     image: sandwich-club/api:nx-dev
     ports:
