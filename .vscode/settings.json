@@ -5,5 +5,5 @@
   },
   "editor.formatOnSave": true,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "jest.jestCommandLine": "npm run watch:affected:test --"
+  "jest.jestCommandLine": "npm run affected:test --"
 }
